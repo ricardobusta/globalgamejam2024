@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bnfhx2c83awg1"]
+
+[node name="CatGame" type="Node2D"]
+
+[node name="Cat" type="Node2D" parent="."]
+
+[node name="Cat2D" type="Sprite2D" parent="Cat"]
+
+[node name="GameController" type="Node2D" parent="."]
+
+[node name="Toy" type="Node2D" parent="."]
+
+[node name="Toy2D" type="Sprite2D" parent="Toy"]
