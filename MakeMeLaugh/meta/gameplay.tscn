@@ -26,30 +26,6 @@ layout_mode = 2
 texture = ExtResource("1_yt55y")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("1_yt55y")
-expand_mode = 1
-
-[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("1_yt55y")
-expand_mode = 1
-
-[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("1_yt55y")
-expand_mode = 1
-
-[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-texture = ExtResource("1_yt55y")
-expand_mode = 1
-
 [node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
