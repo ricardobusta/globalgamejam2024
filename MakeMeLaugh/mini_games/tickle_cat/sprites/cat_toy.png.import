@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tqs5iihyudwl"
-path="res://.godot/imported/Illustration.png-24a76a28df8c5cd16e766344b681efd9.ctex"
+uid="uid://cuc4k6jwdq3ru"
+path="res://.godot/imported/cat_toy.png-bcf4850e4005aa0b20519563682afbc7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mini_games/tickle_cat/sprites/Illustration.png"
-dest_files=["res://.godot/imported/Illustration.png-24a76a28df8c5cd16e766344b681efd9.ctex"]
+source_file="res://mini_games/tickle_cat/sprites/cat_toy.png"
+dest_files=["res://.godot/imported/cat_toy.png-bcf4850e4005aa0b20519563682afbc7.ctex"]
 
 [params]
 
