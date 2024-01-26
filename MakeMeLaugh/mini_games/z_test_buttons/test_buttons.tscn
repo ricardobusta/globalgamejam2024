@@ -1,5 +1,34 @@
-[gd_scene format=3 uid="uid://i6fgt8puqsin"]
+[gd_scene load_steps=5 format=3 uid="uid://i6fgt8puqsin"]
+
+[ext_resource type="Script" path="res://mini_games/z_test_buttons/test_buttons_controller.gd" id="1_16sb5"]
+[ext_resource type="Texture2D" uid="uid://bd1acyrta1bq6" path="res://app/icon.svg" id="2_6b16n"]
+[ext_resource type="Script" path="res://shared/clickable_area2d.gd" id="2_d0hyd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_36k6b"]
+radius = 51.0
 
 [node name="TestButtons" type="Node2D"]
+script = ExtResource("1_16sb5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="WinButton" type="Area2D" parent="."]
+position = Vector2(222, 0)
+script = ExtResource("2_d0hyd")
+
+[node name="Sprite2D" type="Sprite2D" parent="WinButton"]
+texture = ExtResource("2_6b16n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinButton"]
+shape = SubResource("CircleShape2D_36k6b")
+
+[node name="LoseButton" type="Area2D" parent="."]
+position = Vector2(-219, 0)
+script = ExtResource("2_d0hyd")
+
+[node name="Sprite2D" type="Sprite2D" parent="LoseButton"]
+position = Vector2(0, -1)
+texture = ExtResource("2_6b16n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseButton"]
+shape = SubResource("CircleShape2D_36k6b")
