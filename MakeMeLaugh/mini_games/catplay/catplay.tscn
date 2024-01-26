@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bufiv2pjum3uh"]
+
+[ext_resource type="Texture2D" uid="uid://tqs5iihyudwl" path="res://mini_games/catplay/sprites/sad_cat.png" id="1_1n1lc"]
+[ext_resource type="Script" path="res://mini_games/catplay/catplay_controller.gd" id="1_db7s1"]
+[ext_resource type="Texture2D" uid="uid://cuc4k6jwdq3ru" path="res://mini_games/catplay/sprites/cat_toy.png" id="2_1qep2"]
+
+[node name="CatGame" type="Node2D"]
+script = ExtResource("1_db7s1")
+
+[node name="Cat" type="Node2D" parent="."]
+
+[node name="Cat2D" type="Sprite2D" parent="Cat"]
+position = Vector2(241, 247)
+texture = ExtResource("1_1n1lc")
+
+[node name="Toy" type="Node2D" parent="."]
+
+[node name="Toy2D" type="Sprite2D" parent="Toy"]
+position = Vector2(662, 214)
+texture = ExtResource("2_1qep2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(581, 324)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://du6j4komgxkgq"]
+[gd_scene load_steps=3 format=3 uid="uid://du6j4komgxkgq"]
 
+[ext_resource type="Script" path="res://meta/gameplay_controller.gd" id="1_rb4i0"]
 [ext_resource type="Texture2D" uid="uid://bd1acyrta1bq6" path="res://app/icon.svg" id="1_yt55y"]
 
 [node name="Gameplay" type="Control"]
@@ -9,46 +10,47 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_rb4i0")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-layout_mode = 0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 302.0
 offset_bottom = 38.0
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("1_yt55y")
 expand_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("1_yt55y")
 expand_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("1_yt55y")
 expand_mode = 1
 
-[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("1_yt55y")
 expand_mode = 1
 
-[node name="TextureRect5" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("1_yt55y")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 1
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
