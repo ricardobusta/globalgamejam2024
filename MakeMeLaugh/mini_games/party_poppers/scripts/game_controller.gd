@@ -1,5 +1,7 @@
 extends Node
 
+@onready var party_popper_01 = $"../Party_popper_01/Party_popper_012D"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,4 +10,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# if click on popper, it pops
+	
+		print("plim")
+		party_popper_01.texture = preload("res://mini_games/party_poppers/sprites/opened_popper_01.png")

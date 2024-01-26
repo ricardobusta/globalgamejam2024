@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ootwdxehjxbq"]
+
+[ext_resource type="Texture2D" uid="uid://dc06u3l3s7p76" path="res://mini_games/party_poppers/sprites/closed_popper_01.png" id="1_6fx0j"]
+[ext_resource type="Script" path="res://mini_games/party_poppers/scripts/game_controller.gd" id="1_cp2l1"]
+[ext_resource type="Script" path="res://shared/clickable_area2d.gd" id="3_52dmv"]
+
+[node name="PartyPoppers" type="Node2D"]
+
+[node name="Game_controller" type="Node2D" parent="."]
+script = ExtResource("1_cp2l1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(575, 326)
+
+[node name="Party_popper_01" type="Node2D" parent="."]
+position = Vector2(579, 296)
+
+[node name="Party_popper_012D" type="Sprite2D" parent="Party_popper_01"]
+texture = ExtResource("1_6fx0j")
+
+[node name="Area2D" type="Area2D" parent="Party_popper_01"]
+script = ExtResource("3_52dmv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Party_popper_01/Area2D"]
