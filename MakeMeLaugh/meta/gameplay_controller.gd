@@ -23,15 +23,18 @@ var victory_count: int = 0
 @onready var victory_count_label: Label = $GameplayUI/VictoryCountLabel
 
 func _ready() -> void:
+    current_health = max_health
+
     health_container.remove_child(health_template)
     for i: int in range(0, max_health):
-        health_icons.append(health_template.duplicate());
-        var node: Node = health_icons[i]
+        var node: Node = health_template.duplicate()
+        health_icons.append(node);
         health_container.add_child(node)
 
     #scenes.append(load("res://mini_games/z_test_buttons/test_buttons.tscn"))
     #scenes.append(load("res://mini_games/catplay/catplay.tscn"))
     #scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
+    scenes.append(load("res://mini_games/clown/clown.tscn"))
 
     scenes.shuffle()
 

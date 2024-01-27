@@ -14,7 +14,7 @@ config/name="LotsOfLols"
 config/description="Game created for Global Game Jam 2024"
 run/main_scene="res://meta/title_screen.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
-config/icon="res://app/icon.svg"
+config/icon="res://app/icon.png"
 
 [debug]
 

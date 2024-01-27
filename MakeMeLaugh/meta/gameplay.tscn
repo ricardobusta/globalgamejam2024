@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://du6j4komgxkgq"]
 
 [ext_resource type="Script" path="res://meta/gameplay_controller.gd" id="1_rb4i0"]
-[ext_resource type="Texture2D" uid="uid://bd1acyrta1bq6" path="res://app/icon.svg" id="1_yt55y"]
+[ext_resource type="Texture2D" uid="uid://wycxvb24c8lc" path="res://meta/sprites/heart.png" id="2_ca6no"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w6nvy"]
 font_size = 50
@@ -31,15 +31,16 @@ script = ExtResource("1_rb4i0")
 layer = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GameplayUI"]
-offset_left = 2.0
-offset_top = -2.0
-offset_right = 302.0
-offset_bottom = 38.0
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 306.0
+offset_bottom = 39.0
 
 [node name="TextureRect" type="TextureRect" parent="GameplayUI/HBoxContainer"]
-custom_minimum_size = Vector2(40, 40)
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture = ExtResource("1_yt55y")
+texture = ExtResource("2_ca6no")
 expand_mode = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="GameplayUI"]

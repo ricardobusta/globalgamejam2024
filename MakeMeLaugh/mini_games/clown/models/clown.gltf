@@ -27,83 +27,35 @@
 		},
 		{
 			"mesh":1,
-			"name":"Nose"
+			"name":"ClownNose"
 		},
 		{
 			"mesh":2,
-			"name":"Eye"
+			"name":"ClownEyes"
 		},
 		{
 			"mesh":3,
-			"name":"Mouth"
+			"name":"ClownMouth"
 		},
 		{
 			"mesh":4,
-			"name":"Hat"
+			"name":"ClownHat"
 		},
 		{
 			"mesh":5,
-			"name":"Sphere"
+			"name":"GoblinEyes"
 		},
 		{
 			"mesh":6,
-			"name":"Cone",
-			"rotation":[
-				-0.13427352905273438,
-				0,
-				0,
-				0.9909443855285645
-			],
-			"scale":[
-				0.21574953198432922,
-				0.21574953198432922,
-				0.21574953198432922
-			],
-			"translation":[
-				0,
-				0.15205278992652893,
-				0.960803210735321
-			]
+			"name":"GoblinNose"
 		},
 		{
 			"mesh":7,
-			"name":"Plane",
-			"rotation":[
-				0.7071068286895752,
-				0,
-				0,
-				0.7071068286895752
-			],
-			"scale":[
-				0.31162118911743164,
-				0.31162118911743164,
-				0.31162118911743164
-			],
-			"translation":[
-				1.1791062355041504,
-				0,
-				0
-			]
+			"name":"GoblinHat"
 		},
 		{
 			"mesh":8,
-			"name":"Plane.001",
-			"rotation":[
-				0.7071068286895752,
-				0,
-				0,
-				0.7071068286895752
-			],
-			"scale":[
-				0.19954347610473633,
-				0.19954347610473633,
-				0.19954347610473633
-			],
-			"translation":[
-				0,
-				-0.3477782607078552,
-				1.0939064025878906
-			]
+			"name":"GoblinMouth"
 		}
 	],
 	"materials":[
@@ -697,14 +649,14 @@
 			"componentType":5126,
 			"count":48,
 			"max":[
-				1,
-				1,
-				1
+				0.21574953198432922,
+				0.3600226640701294,
+				1.2261873483657837
 			],
 			"min":[
-				-1,
-				-1,
-				-1
+				-0.21574953198432922,
+				-0.11333131790161133,
+				0.810247540473938
 			],
 			"type":"VEC3"
 		},
@@ -731,14 +683,14 @@
 			"componentType":5126,
 			"count":16,
 			"max":[
-				0.7550694942474365,
-				0.0864998921751976,
-				1
+				1.414401888847351,
+				0.49346959590911865,
+				0.02695521153509617
 			],
 			"min":[
-				-8.322629928588867,
-				0,
-				-1.5835559368133545
+				-1.4144015312194824,
+				-0.31162118911743164,
+				-1.3621394678864363e-08
 			],
 			"type":"VEC3"
 		},
@@ -763,69 +715,69 @@
 		{
 			"bufferView":48,
 			"componentType":5126,
-			"count":11,
+			"count":22,
 			"max":[
-				1.7030210494995117,
-				-0.4498932659626007,
-				0.616610586643219
+				0.3398267328739166,
+				-0.14823473989963531,
+				1.0041331052780151
 			],
 			"min":[
-				0,
-				-0.48575639724731445,
-				-1.000000238418579
+				-0.3398267328739166,
+				-0.4708188772201538,
+				0.9969768524169922
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":49,
 			"componentType":5126,
-			"count":11,
+			"count":22,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":50,
 			"componentType":5126,
-			"count":11,
+			"count":22,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":51,
 			"componentType":5123,
-			"count":21,
+			"count":42,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":52,
 			"componentType":5126,
-			"count":3,
+			"count":6,
 			"max":[
-				1.0940654277801514,
-				-0.462980717420578,
-				0.5583551526069641
+				0.21831361949443817,
+				-0.3245342969894409,
+				1.0015215873718262
 			],
 			"min":[
-				0.5892955660820007,
-				-0.47474175691604614,
-				-0.11648566275835037
+				-0.21831361949443817,
+				-0.4591943919658661,
+				0.9991747736930847
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":53,
 			"componentType":5126,
-			"count":3,
+			"count":6,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":54,
 			"componentType":5126,
-			"count":3,
+			"count":6,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":55,
 			"componentType":5123,
-			"count":3,
+			"count":6,
 			"type":"SCALAR"
 		}
 	],
@@ -1120,56 +1072,56 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":132,
+			"byteLength":264,
 			"byteOffset":34664,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":132,
-			"byteOffset":34796,
-			"target":34962
-		},
-		{
-			"buffer":0,
-			"byteLength":88,
+			"byteLength":264,
 			"byteOffset":34928,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":42,
-			"byteOffset":35016,
+			"byteLength":176,
+			"byteOffset":35192,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":84,
+			"byteOffset":35368,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":36,
-			"byteOffset":35060,
+			"byteLength":72,
+			"byteOffset":35452,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":36,
-			"byteOffset":35096,
+			"byteLength":72,
+			"byteOffset":35524,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":24,
-			"byteOffset":35132,
+			"byteLength":48,
+			"byteOffset":35596,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":6,
-			"byteOffset":35156,
+			"byteLength":12,
+			"byteOffset":35644,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":35164,
+			"byteLength":35656,
 			"uri":"clown.bin"
 		}
 	]

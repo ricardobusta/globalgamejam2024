@@ -1,21 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjr3xbriyftdo"]
+[gd_scene load_steps=14 format=3 uid="uid://bjr3xbriyftdo"]
 
 [ext_resource type="Script" path="res://meta/title_screen_controller.gd" id="1_hyv20"]
+[ext_resource type="ArrayMesh" uid="uid://dw4387hth0104" path="res://mini_games/clown/models/model_head.res" id="2_jcgw1"]
+[ext_resource type="ArrayMesh" uid="uid://d1kqj16jom4bn" path="res://mini_games/clown/models/model_clown_hat.res" id="3_4yr65"]
+[ext_resource type="ArrayMesh" uid="uid://badskfv0uoy7l" path="res://mini_games/clown/models/model_clown_eyes.res" id="4_bcaec"]
+[ext_resource type="ArrayMesh" uid="uid://2iocoaf1iijv" path="res://mini_games/clown/models/model_clown_nose.res" id="5_gf2r6"]
+[ext_resource type="ArrayMesh" uid="uid://v11kgjac84de" path="res://mini_games/clown/models/model_clown_mouth.res" id="6_tiumk"]
+[ext_resource type="ArrayMesh" uid="uid://0e6eqs6upkul" path="res://mini_games/clown/models/model_goblin_hat.res" id="7_5kqsb"]
+[ext_resource type="ArrayMesh" uid="uid://br4tnr0uctkto" path="res://mini_games/clown/models/model_goblin_eyes.res" id="8_jnucl"]
+[ext_resource type="ArrayMesh" uid="uid://30ldh704jity" path="res://mini_games/clown/models/model_goblin_nose.res" id="9_ny8l8"]
+[ext_resource type="ArrayMesh" uid="uid://8cejh86oq4bk" path="res://mini_games/clown/models/model_goblin_mouth.res" id="10_l26r5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xwbg"]
 font_size = 60
 
-[node name="TitleScreen" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vs7lc"]
+albedo_color = Color(0.356863, 1, 0.101961, 1)
+
+[sub_resource type="Environment" id="Environment_xiulp"]
+
+[node name="TitleScreen" type="Node"]
 script = ExtResource("1_hyv20")
 
-[node name="TitleLabel" type="Label" parent="."]
-layout_mode = 1
+[node name="UiCanvas" type="CanvasLayer" parent="."]
+
+[node name="PlayButton" type="Button" parent="UiCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.5
+offset_top = -227.0
+offset_right = 48.5
+offset_bottom = -196.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "PLAY GAME"
+
+[node name="TitleLabel" type="Label" parent="UiCanvas"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -29,23 +52,7 @@ label_settings = SubResource("LabelSettings_5xwbg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -4.0
-offset_top = -204.0
-offset_right = 4.0
-offset_bottom = -196.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "PLAY GAME"
-
-[node name="CreditsLabel" type="Label" parent="."]
-layout_mode = 1
+[node name="CreditsLabel" type="Label" parent="UiCanvas"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -59,3 +66,54 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Ricardo Bustamante <ricardo@busta.dev>
 Vanessa Oliveira <vanessa@vksilva.com>"
+
+[node name="Scene" type="Node3D" parent="."]
+
+[node name="Head" type="MeshInstance3D" parent="Scene"]
+transform = Transform3D(0.742841, 0, 0.669468, -0.3258, 0.873594, 0.361508, -0.584843, -0.486656, 0.648942, -1.57355, 0, 0)
+mesh = ExtResource("2_jcgw1")
+
+[node name="Hat" type="MeshInstance3D" parent="Scene/Head"]
+mesh = ExtResource("3_4yr65")
+skeleton = NodePath("../..")
+
+[node name="Eyes" type="MeshInstance3D" parent="Scene/Head"]
+mesh = ExtResource("4_bcaec")
+skeleton = NodePath("../..")
+
+[node name="Nose" type="MeshInstance3D" parent="Scene/Head"]
+mesh = ExtResource("5_gf2r6")
+skeleton = NodePath("../..")
+
+[node name="Mouth" type="MeshInstance3D" parent="Scene/Head"]
+mesh = ExtResource("6_tiumk")
+skeleton = NodePath("../..")
+
+[node name="Head2" type="MeshInstance3D" parent="Scene"]
+transform = Transform3D(0.575452, -0.391928, -0.717807, 0.55947, 0.82884, -0.00403689, 0.59653, -0.399269, 0.69623, 1.75754, 0, 0)
+mesh = ExtResource("2_jcgw1")
+surface_material_override/0 = SubResource("StandardMaterial3D_vs7lc")
+
+[node name="Hat" type="MeshInstance3D" parent="Scene/Head2"]
+mesh = ExtResource("7_5kqsb")
+skeleton = NodePath("../..")
+
+[node name="Eyes" type="MeshInstance3D" parent="Scene/Head2"]
+mesh = ExtResource("8_jnucl")
+skeleton = NodePath("../..")
+
+[node name="Nose" type="MeshInstance3D" parent="Scene/Head2"]
+mesh = ExtResource("9_ny8l8")
+skeleton = NodePath("../..")
+
+[node name="Mouth" type="MeshInstance3D" parent="Scene/Head2"]
+mesh = ExtResource("10_l26r5")
+skeleton = NodePath("../..")
+
+[node name="Camera3D" type="Camera3D" parent="Scene"]
+transform = Transform3D(1, 0, 0, 0, 0.97299, 0.230848, 0, -0.230848, 0.97299, 0, 1.90215, 6.27387)
+environment = SubResource("Environment_xiulp")
+fov = 30.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.48259)
