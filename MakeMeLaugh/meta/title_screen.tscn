@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bjr3xbriyftdo"]
+[gd_scene load_steps=13 format=3 uid="uid://bjr3xbriyftdo"]
 
 [ext_resource type="Script" path="res://meta/title_screen_controller.gd" id="1_hyv20"]
 [ext_resource type="ArrayMesh" uid="uid://dw4387hth0104" path="res://mini_games/clown/models/model_head.res" id="2_jcgw1"]
@@ -13,9 +13,6 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xwbg"]
 font_size = 60
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vs7lc"]
-albedo_color = Color(0.356863, 1, 0.101961, 1)
 
 [sub_resource type="Environment" id="Environment_xiulp"]
 
@@ -92,7 +89,6 @@ skeleton = NodePath("../..")
 [node name="Head2" type="MeshInstance3D" parent="Scene"]
 transform = Transform3D(0.575452, -0.391928, -0.717807, 0.55947, 0.82884, -0.00403689, 0.59653, -0.399269, 0.69623, 1.75754, 0, 0)
 mesh = ExtResource("2_jcgw1")
-surface_material_override/0 = SubResource("StandardMaterial3D_vs7lc")
 
 [node name="Hat" type="MeshInstance3D" parent="Scene/Head2"]
 mesh = ExtResource("7_5kqsb")

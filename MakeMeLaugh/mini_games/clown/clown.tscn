@@ -1,15 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://04etu8gtol5"]
+[gd_scene load_steps=18 format=3 uid="uid://04etu8gtol5"]
 
 [ext_resource type="Script" path="res://mini_games/clown/clown_controller.gd" id="1_weclk"]
 [ext_resource type="ArrayMesh" uid="uid://dw4387hth0104" path="res://mini_games/clown/models/model_head.res" id="2_ywk6x"]
 [ext_resource type="ArrayMesh" uid="uid://badskfv0uoy7l" path="res://mini_games/clown/models/model_clown_eyes.res" id="3_70jb3"]
 [ext_resource type="ArrayMesh" uid="uid://d1kqj16jom4bn" path="res://mini_games/clown/models/model_clown_hat.res" id="3_pufpf"]
 [ext_resource type="ArrayMesh" uid="uid://2iocoaf1iijv" path="res://mini_games/clown/models/model_clown_nose.res" id="5_1ss3c"]
+[ext_resource type="ArrayMesh" uid="uid://bvd821vl0rsi4" path="res://mini_games/clown/models/model_skel_hat.res" id="5_itj0o"]
+[ext_resource type="ArrayMesh" uid="uid://bnvebwpps8nlh" path="res://mini_games/clown/models/model_dr_hat.res" id="6_duv3y"]
 [ext_resource type="ArrayMesh" uid="uid://v11kgjac84de" path="res://mini_games/clown/models/model_clown_mouth.res" id="6_k06pw"]
 [ext_resource type="ArrayMesh" uid="uid://0e6eqs6upkul" path="res://mini_games/clown/models/model_goblin_hat.res" id="7_yx8wx"]
 [ext_resource type="ArrayMesh" uid="uid://br4tnr0uctkto" path="res://mini_games/clown/models/model_goblin_eyes.res" id="8_ytj1r"]
 [ext_resource type="ArrayMesh" uid="uid://30ldh704jity" path="res://mini_games/clown/models/model_goblin_nose.res" id="9_xa5rt"]
+[ext_resource type="ArrayMesh" uid="uid://co5hlr52j78u3" path="res://mini_games/clown/models/model_skel_eyes.res" id="9_xe78j"]
 [ext_resource type="ArrayMesh" uid="uid://8cejh86oq4bk" path="res://mini_games/clown/models/model_goblin_mouth.res" id="10_hfa7j"]
+[ext_resource type="ArrayMesh" uid="uid://v2nvdjyygtmw" path="res://mini_games/clown/models/model_skel_nose.res" id="12_lo1cb"]
+[ext_resource type="ArrayMesh" uid="uid://cbm5jmaebunpa" path="res://mini_games/clown/models/model_dr_nose.res" id="13_bi43d"]
+[ext_resource type="ArrayMesh" uid="uid://ce76wjqs8bahq" path="res://mini_games/clown/models/model_skel_mouth.res" id="16_odmpd"]
+[ext_resource type="ArrayMesh" uid="uid://blmatut607ju6" path="res://mini_games/clown/models/model_dr_mouth.res" id="17_u1kuq"]
 
 [node name="Clown" type="Node3D"]
 script = ExtResource("1_weclk")
@@ -20,16 +27,26 @@ action = "Make him funny!"
 mesh = ExtResource("2_ywk6x")
 
 [node name="Hat" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.20958)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
 [node name="ClownHat" type="MeshInstance3D" parent="Hat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.20958)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 mesh = ExtResource("3_pufpf")
 skeleton = NodePath("../..")
 
 [node name="GoblinHat" type="MeshInstance3D" parent="Hat"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.20958)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2, 0, -8.74228e-08)
 mesh = ExtResource("7_yx8wx")
+skeleton = NodePath("../..")
+
+[node name="SkelHat" type="MeshInstance3D" parent="Hat"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.74846e-07, 0, -2)
+mesh = ExtResource("5_itj0o")
+skeleton = NodePath("../..")
+
+[node name="DrHat" type="MeshInstance3D" parent="Hat"]
+transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 2, 0, 2.38498e-08)
+mesh = ExtResource("6_duv3y")
 skeleton = NodePath("../..")
 
 [node name="Eyes" type="Node3D" parent="."]
@@ -40,28 +57,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.20958)
 mesh = ExtResource("3_70jb3")
 skeleton = NodePath("../..")
 
-[node name="GoblinEyes1" type="MeshInstance3D" parent="Eyes"]
-transform = Transform3D(0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, 0.5, -1.04753, 0, 0.604791)
+[node name="GoblinEyes" type="MeshInstance3D" parent="Eyes"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.21, 0, -5.28908e-08)
 mesh = ExtResource("8_ytj1r")
 skeleton = NodePath("../..")
 
-[node name="GoblinEyes2" type="MeshInstance3D" parent="Eyes"]
-transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, -1.04753, 0, -0.604791)
-mesh = ExtResource("8_ytj1r")
+[node name="SkelEyes" type="MeshInstance3D" parent="Eyes"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.05782e-07, 0, -1.21)
+mesh = ExtResource("9_xe78j")
 skeleton = NodePath("../..")
 
-[node name="GoblinEyes3" type="MeshInstance3D" parent="Eyes"]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.05745e-07, 0, -1.20958)
-mesh = ExtResource("8_ytj1r")
-skeleton = NodePath("../..")
-
-[node name="GoblinEyes4" type="MeshInstance3D" parent="Eyes"]
-transform = Transform3D(-0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, -0.5, 1.04753, 0, -0.604791)
-mesh = ExtResource("8_ytj1r")
-skeleton = NodePath("../..")
-
-[node name="GoblinEyes5" type="MeshInstance3D" parent="Eyes"]
-transform = Transform3D(0.5, 0, 0.866025, 0, 1, 0, -0.866025, 0, 0.5, 1.04753, 0, 0.604791)
+[node name="DrEyes" type="MeshInstance3D" parent="Eyes"]
+transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 1.21, 0, 1.44291e-08)
 mesh = ExtResource("8_ytj1r")
 skeleton = NodePath("../..")
 
@@ -74,8 +81,18 @@ mesh = ExtResource("5_1ss3c")
 skeleton = NodePath("../..")
 
 [node name="GoblinNose" type="MeshInstance3D" parent="Nose"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.20958)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.20958, 0, -5.28725e-08)
 mesh = ExtResource("9_xa5rt")
+skeleton = NodePath("../..")
+
+[node name="SkelNose" type="MeshInstance3D" parent="Nose"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.05745e-07, 0, -1.20958)
+mesh = ExtResource("12_lo1cb")
+skeleton = NodePath("../..")
+
+[node name="DrNose" type="MeshInstance3D" parent="Nose"]
+transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 1.20958, 0, 1.44241e-08)
+mesh = ExtResource("13_bi43d")
 skeleton = NodePath("../..")
 
 [node name="Mouth" type="Node3D" parent="."]
@@ -87,8 +104,18 @@ mesh = ExtResource("6_k06pw")
 skeleton = NodePath("../..")
 
 [node name="GoblinMouth" type="MeshInstance3D" parent="Mouth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.20958)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.20958, 0, -5.28725e-08)
 mesh = ExtResource("10_hfa7j")
+skeleton = NodePath("../..")
+
+[node name="SkelMouth" type="MeshInstance3D" parent="Mouth"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 1.05745e-07, 0, -1.20958)
+mesh = ExtResource("16_odmpd")
+skeleton = NodePath("../..")
+
+[node name="DrMouth" type="MeshInstance3D" parent="Mouth"]
+transform = Transform3D(1.19249e-08, 0, 1, 0, 1, 0, -1, 0, 1.19249e-08, 1.20958, 0, 1.44241e-08)
+mesh = ExtResource("17_u1kuq")
 skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]

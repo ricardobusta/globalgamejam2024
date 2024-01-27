@@ -31,6 +31,16 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "meshes": {
+"clown_Circle_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://mini_games/clown/models/model_skel_eyes.res"
+},
 "clown_Cone": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -51,6 +61,16 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://mini_games/clown/models/model_goblin_nose.res"
 },
+"clown_Cone_010": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://mini_games/clown/models/model_skel_hat.res"
+},
 "clown_Cube_001": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -61,7 +81,7 @@ _subresources={
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://mini_games/clown/models/model_clown_eyes.res"
 },
-"clown_Plane_001": {
+"clown_Cylinder": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -69,9 +89,29 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
-"save_to_file/path": "res://mini_games/clown/models/model_goblin_hat.res"
+"save_to_file/path": "res://mini_games/clown/models/model_dr_hat.res"
 },
-"clown_Plane_002": {
+"clown_Icosphere_001": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://mini_games/clown/models/model_dr_nose.res"
+},
+"clown_Plane": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://mini_games/clown/models/model_dr_mouth.res"
+},
+"clown_Plane_003": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,
@@ -80,6 +120,26 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/make_streamable": "",
 "save_to_file/path": "res://mini_games/clown/models/model_goblin_mouth.res"
+},
+"clown_Plane_004": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://mini_games/clown/models/model_skel_nose.res"
+},
+"clown_Plane_005": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://mini_games/clown/models/model_skel_mouth.res"
 },
 "clown_Sphere": {
 "generate/lightmap_uv": 0,
@@ -102,6 +162,26 @@ _subresources={
 "save_to_file/path": "res://mini_games/clown/models/model_clown_nose.res"
 },
 "clown_Sphere_002": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://mini_games/clown/models/model_dr_eyes.res"
+},
+"clown_Sphere_003": {
+"generate/lightmap_uv": 0,
+"generate/lods": 0,
+"generate/shadow_meshes": 0,
+"lods/normal_merge_angle": 60.0,
+"lods/normal_split_angle": 25.0,
+"save_to_file/enabled": true,
+"save_to_file/make_streamable": "",
+"save_to_file/path": "res://mini_games/clown/models/model_goblin_hat.res"
+},
+"clown_Sphere_004": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
 "generate/shadow_meshes": 0,

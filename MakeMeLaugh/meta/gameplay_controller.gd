@@ -31,11 +31,12 @@ func _ready() -> void:
         health_icons.append(node);
         health_container.add_child(node)
 
-    scenes.append(load("res://mini_games/catplay/catplay.tscn"))
-    scenes.append(load("res://mini_games/z_test_buttons/test_buttons.tscn"))
-    scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
-    scenes.append(load("res://mini_games/parallel_parking/parallel_parking.tscn"))
-    scenes.append(load("res://mini_games/clown/clown.tscn"))
+    #scenes.append(load("res://mini_games/catplay/catplay.tscn"))
+    #scenes.append(load("res://mini_games/z_test_buttons/test_buttons.tscn"))
+    #scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
+    #scenes.append(load("res://mini_games/parallel_parking/parallel_parking.tscn"))
+    #scenes.append(load("res://mini_games/clown/clown.tscn"))
+    scenes.append(load("res://mini_games/sculpt/sculpt.tscn"))
 
     scenes.shuffle()
 
@@ -104,6 +105,12 @@ func _play_next_minigame() -> void:
     _set_minigame(minigame_index)
 
 func _process(delta: float) -> void:
+    if Input.is_action_just_pressed("ui_cancel"):
+        active_game.game_over = true
+        active_game.timeout()
+        game_running = false
+        _on_game_lost()
+
     if game_running:
         current_time -= delta
         time_bar.value = current_time
