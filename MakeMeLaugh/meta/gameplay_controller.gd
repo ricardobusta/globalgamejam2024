@@ -79,6 +79,7 @@ func _on_game_lost() -> void:
 
     if current_health == 0:
         _go_to_title()
+        return
 
     _update_health_bar()
     get_tree().create_timer(postgame_action_time).timeout.connect(_play_next_minigame)
