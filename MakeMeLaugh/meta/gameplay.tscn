@@ -23,6 +23,7 @@ mouse_filter = 1
 script = ExtResource("1_rb4i0")
 
 [node name="GamePresentation" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Panel" type="Panel" parent="GamePresentation"]
 anchors_preset = 15
