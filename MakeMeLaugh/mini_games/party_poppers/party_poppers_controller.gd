@@ -9,26 +9,23 @@ extends MinigameController
 @onready var party_popper_03:Popper = $Party_popper_03/Popper03Area2D
 @onready var party_popper_03_sprite:Sprite2D = $Party_popper_03/PartyPopperSprite
 
-var game_over: bool = false
-
 func _ready() -> void:
     party_popper_01.clicked.connect(_on_popper_clicked)
     party_popper_02.clicked.connect(_on_popper_clicked)
     party_popper_03.clicked.connect(_on_popper_clicked)
 
 func _on_popper_clicked(popper: Popper) -> void:
-    if game_over:
+    if _paused():
         return
     popper.sprite.texture = preload("res://mini_games/party_poppers/sprites/opened_popper_01.png")
     popper.popped = true
     _all_popped()
 
 func _all_popped() -> void:
-    if game_over:
+    if _paused():
         return
     if party_popper_01.popped and party_popper_02.popped and party_popper_03.popped:
         _win_game()
-        game_over = true
 
 func timeout() -> void:
-    lost = true
+    pass

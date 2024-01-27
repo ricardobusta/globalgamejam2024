@@ -1,16 +1,18 @@
 extends MinigameController
 
 var cat_happines: float = 0
-var cat_bit_happy: float = 500
-var cat_medium_happy: float = 800
-var cat_happy: float = 1500
+var cat_bit_happy: float = 1000
+var cat_medium_happy: float = 2000
+var cat_happy: float = 3000
 var mouse_position: Vector2
 var previous_mouse_position: Vector2
 
 @onready var toy: Sprite2D = $"Toy/Toy2D"
 @onready var cat: Sprite2D = $"Cat/Cat2D"
 
-var game_over: bool = false
+const sad_cat: Texture2D = preload("res://mini_games/catplay/sprites/sad_cat.png")
+const neutral_cat: Texture2D = preload("res://mini_games/catplay/sprites/neutral_cat.png")
+const happy_cat: Texture2D = preload("res://mini_games/catplay/sprites/happy_cat.png")
 
 func _ready() -> void:
     mouse_position = get_viewport().get_mouse_position()
@@ -18,7 +20,7 @@ func _ready() -> void:
     toy.position = mouse_position
 
 func _process(_delta: float) -> void:
-    if game_over:
+    if _paused():
         return
 
     # move the toy
@@ -30,14 +32,12 @@ func _process(_delta: float) -> void:
     # if toy moved, cat is happier
     cat_happines += mouse_delta.length()
     if cat_happines >= cat_bit_happy and cat_happines < cat_medium_happy:
-        cat.texture = preload("res://mini_games/catplay/sprites/neutral_cat.png")
+        cat.texture = neutral_cat
 
     # if cat is happy enough, win
     if cat_happines >= cat_happy:
-        cat.texture = preload("res://mini_games/catplay/sprites/happy_cat.png")
+        cat.texture = happy_cat
         _win_game()
-        game_over = true
 
 func timeout() -> void:
-    game_over = true
-    cat.texture = preload("res://mini_games/catplay/sprites/sad_cat.png")
+    cat.texture = sad_cat

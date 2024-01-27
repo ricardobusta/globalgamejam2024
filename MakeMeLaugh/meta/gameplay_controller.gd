@@ -63,6 +63,7 @@ func _set_minigame(index: int) -> void:
 
 func _on_minigame_start() -> void:
     game_running = true
+    active_game.start()
     remove_child(game_presentation)
 
 func _on_game_won() -> void:
@@ -102,6 +103,7 @@ func _process(delta: float) -> void:
         current_time -= delta
         time_bar.value = current_time
         if current_time <= 0:
+            active_game.game_over = true
             active_game.timeout()
             game_running = false
             _on_game_lost()

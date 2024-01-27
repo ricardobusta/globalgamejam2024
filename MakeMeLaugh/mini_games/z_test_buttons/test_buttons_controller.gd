@@ -7,17 +7,14 @@ extends MinigameController
 @onready var lose_button: ClickableArea3D = $LoseButton
 @onready var lamp: MeshInstance3D = $Lamp
 
-var game_over: bool = false
-
 func _ready() -> void:
     win_button.clicked.connect(_on_button_clicked)
     lose_button.clicked.connect(_on_button_clicked)
 
 func _on_button_clicked(button: ClickableArea3D) -> void:
-    if game_over:
+    if _paused():
         return
 
-    game_over = true
     if button == win_button:
         lamp.material_override = win_material
         _win_game()
@@ -27,4 +24,3 @@ func _on_button_clicked(button: ClickableArea3D) -> void:
 
 func timeout() -> void:
     lamp.material_override = lose_material
-    game_over = true
