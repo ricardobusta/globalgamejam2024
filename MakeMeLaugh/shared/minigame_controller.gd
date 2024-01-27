@@ -12,3 +12,6 @@ func _win_game() -> void:
 
 func _lose_game() -> void:
     game_lost_signal.emit()
+
+func timeout() -> void:
+    assert(false, "method not implemented, override timeout in minigame")

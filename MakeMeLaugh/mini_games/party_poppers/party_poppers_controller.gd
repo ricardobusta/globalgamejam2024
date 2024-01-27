@@ -7,5 +7,4 @@ func _ready():
 
 func _process(delta):
     # if click on popper, it pops
-        print("plim")
         party_popper_01.texture = preload("res://mini_games/party_poppers/sprites/opened_popper_01.png")

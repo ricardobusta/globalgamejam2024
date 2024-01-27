@@ -9,11 +9,13 @@ var health_icons: Array = []
 
 var current_time: float
 var index_map: Array
+var game_running: bool
 
-@onready var health_container: BoxContainer = $CanvasLayer/HBoxContainer
-@onready var health_template: TextureRect = $CanvasLayer/HBoxContainer/TextureRect
-@onready var time_bar: ProgressBar = $CanvasLayer/ProgressBar
-@onready var quit_button: Button = $CanvasLayer/QuitButton
+@onready var game_presentation: Node = $GamePresentation
+@onready var health_container: BoxContainer = $GameplayUI/HBoxContainer
+@onready var health_template: TextureRect = $GameplayUI/HBoxContainer/TextureRect
+@onready var time_bar: ProgressBar = $GameplayUI/ProgressBar
+@onready var quit_button: Button = $GameplayUI/QuitButton
 
 func _ready() -> void:
     health_container.remove_child(health_template)
@@ -42,8 +44,10 @@ func _set_minigame(index: int) -> void:
     active_game.game_lost_signal.connect(_on_game_lost)
     current_time = active_game.time
     time_bar.max_value = active_game.time
-
+    time_bar.value = active_game.time
     add_child(active_game)
+
+    add_child(game_presentation)
 
 func _on_game_won() -> void:
     print("Won!")
@@ -76,10 +80,13 @@ func _play_next_minigame() -> void:
     _set_minigame(minigame_index)
 
 func _process(delta: float) -> void:
-    current_time -= delta
-    time_bar.value = current_time
-    if current_time <= 0:
-        _on_game_lost()
+    if game_running:
+        current_time -= delta
+        time_bar.value = current_time
+        if current_time <= 0:
+            active_game.timeout()
+            game_running = false
+            _on_game_lost()
 
 func _go_to_title() -> void:
     get_tree().change_scene_to_file("res://meta/title_screen.tscn")

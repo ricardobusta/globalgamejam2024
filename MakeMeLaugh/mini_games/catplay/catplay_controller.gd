@@ -31,3 +31,6 @@ func _process(_delta: float) -> void:
     if cat_happines >= cat_happy:
         cat.texture = preload("res://mini_games/catplay/sprites/happy_cat.png")
         _win_game()
+
+func timeout() -> void:
+    print("cat is sad")

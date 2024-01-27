@@ -7,8 +7,11 @@ func _ready() -> void:
     win_button.clicked.connect(_on_button_clicked)
     lose_button.clicked.connect(_on_button_clicked)
 
-func _on_button_clicked(button_name: String) -> void:
-    if button_name == "WinButton":
+func _on_button_clicked(button: ClickableArea3D) -> void:
+    if button == win_button:
         _win_game()
     else:
         _lose_game()
+
+func timeout() -> void:
+    print("timeout")
