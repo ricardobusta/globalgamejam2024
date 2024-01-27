@@ -8,6 +8,7 @@ var current_health: int = max_health
 var health_icons: Array = []
 
 var current_time: float
+var index_map: Array
 
 @onready var health_container: BoxContainer = $CanvasLayer/HBoxContainer
 @onready var health_template: TextureRect = $CanvasLayer/HBoxContainer/TextureRect
@@ -23,15 +24,20 @@ func _ready() -> void:
 
     scenes.append(load("res://mini_games/catplay/catplay.tscn"))
     scenes.append(load("res://mini_games/z_test_buttons/test_buttons.tscn"))
+    scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
+
+    index_map = range(0, scenes.size())
+    index_map.shuffle()
     _set_minigame(minigame_index)
 
     quit_button.pressed.connect(_go_to_title)
+
 
 func _set_minigame(index: int) -> void:
     if active_game:
         remove_child(active_game)
         active_game.queue_free()
-    var scene: PackedScene = scenes[index]
+    var scene: PackedScene = scenes[index_map[index]]
     active_game = scene.instantiate()
     active_game.game_won_signal.connect(_on_game_won)
     active_game.game_lost_signal.connect(_on_game_lost)
