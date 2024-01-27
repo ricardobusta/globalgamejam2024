@@ -2,9 +2,9 @@ extends Node
 
 var scenes: Array = []
 var active_game: MinigameController = null
-var minigame_index = 0
-var max_health = 5
-var current_health = max_health
+var minigame_index: int = 0
+var max_health: int = 5
+var current_health: int = max_health
 var health_icons: Array = []
 
 var current_time: float
@@ -15,19 +15,21 @@ var current_time: float
 
 func _ready() -> void:
     health_container.remove_child(health_template)
-    for i in range(0, max_health):
+    for i: int in range(0, max_health):
         health_icons.append(health_template.duplicate());
-        health_container.add_child(health_icons[i])
+        var node: Node = health_icons[i]
+        health_container.add_child(node)
 
     scenes.append(load("res://mini_games/catplay/catplay.tscn"))
     scenes.append(load("res://mini_games/z_test_buttons/test_buttons.tscn"))
     _set_minigame(minigame_index)
 
-func _set_minigame(index: int):
+func _set_minigame(index: int) -> void:
     if active_game:
         remove_child(active_game)
         active_game.queue_free()
-    active_game = scenes[index].instantiate()
+    var scene: PackedScene = scenes[index]
+    active_game = scene.instantiate()
     active_game.game_won_signal.connect(_on_game_won)
     active_game.game_lost_signal.connect(_on_game_lost)
     current_time = active_game.time
@@ -35,12 +37,12 @@ func _set_minigame(index: int):
 
     add_child(active_game)
 
-func _on_game_won():
+func _on_game_won() -> void:
     print("Won!")
     _update_health_bar()
     _play_next_minigame()
 
-func _on_game_lost():
+func _on_game_lost() -> void:
     print("Lost!")
     current_health -= 1
 
@@ -50,21 +52,22 @@ func _on_game_lost():
     _update_health_bar()
     _play_next_minigame()
 
-func _update_health_bar():
-    for i in range(0, max_health):
+func _update_health_bar() -> void:
+    for i: int in range(0, max_health):
+        var health_icon: Node = health_icons[i]
         if i >= current_health:
-            if health_icons[i].get_parent():
-                health_container.remove_child(health_icons[i])
+            if health_icon.get_parent():
+                health_container.remove_child(health_icon)
         else:
-            if !health_icons[i].get_parent():
-                health_container.add_child(health_icons[i])
+            if !health_icon.get_parent():
+                health_container.add_child(health_icon)
 
-func _play_next_minigame():
+func _play_next_minigame() -> void:
     minigame_index += 1
     minigame_index %= scenes.size()
     _set_minigame(minigame_index)
 
-func _process(delta: float):
+func _process(delta: float) -> void:
     current_time -= delta
     time_bar.value = current_time
     if current_time <= 0:
