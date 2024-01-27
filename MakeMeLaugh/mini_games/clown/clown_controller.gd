@@ -17,10 +17,19 @@ func timeout() -> void:
     pass
 
 func _process(delta: float) -> void:
-    hat.rotate_y(0.5*speed*delta)
-    eyes.rotate_y(-0.7*speed*delta)
-    nose.rotate_y(0.85*speed*delta)
-    mouth.rotate_y(-1.0*speed*delta)
+    if _paused():
+        return
+    if(clicked < 1):
+        hat.rotate_y(0.5*speed*delta)
+    if(clicked < 2):
+        eyes.rotate_y(-0.7*speed*delta)
+    if(clicked < 3):
+        nose.rotate_y(0.85*speed*delta)
+    if(clicked < 4):
+        mouth.rotate_y(-1.0*speed*delta)
+    if(clicked >= 4):
+        _win_game()
 
 func _on_click(_node: Node3D) -> void:
     print("click")
+    clicked+=1

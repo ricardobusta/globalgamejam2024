@@ -5,7 +5,7 @@ const rotation_speed: float = deg_to_rad(125)
 var velocity: float = 0.0
 const max_velocity: float = 100
 const friction: float = 200
-const acceleration: float = 100
+const acceleration: float = 300
 const wheel_rotation: float = deg_to_rad(25)
 const position_threshold:float = 10
 const angle_threshold:float = 0.15
@@ -24,9 +24,7 @@ signal car_parked
 func _ready() -> void:
     area_2d.area_entered.connect(_on_area_entered)
 
-
 func _process(delta: float) -> void:
-
     if is_car_crashed or !is_car_on:
         return
     var wheel_current_rotation: float = 0
@@ -62,7 +60,6 @@ func _process(delta: float) -> void:
     var parking_angle: float = abs(self.rotation)
     if parking_distance < position_threshold and parking_angle < angle_threshold:
         car_parked.emit()
-
 
 func _on_area_entered(_area: Area2D) -> void:
     audio_stream.play()

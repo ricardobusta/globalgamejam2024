@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3lgnarmamh40"]
+[gd_scene load_steps=10 format=3 uid="uid://c3lgnarmamh40"]
 
 [ext_resource type="Texture2D" uid="uid://gsl3vccreil8" path="res://mini_games/parallel_parking/sprites/track_street.png" id="1_q036w"]
 [ext_resource type="Script" path="res://mini_games/parallel_parking/parallel_parking_controller.gd" id="1_s2v3l"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" path="res://mini_games/parallel_parking/CarController.gd" id="2_qifmq"]
 [ext_resource type="Texture2D" uid="uid://d105l53nb2jyl" path="res://mini_games/parallel_parking/sprites/car_body_red.png" id="3_5yj2a"]
 [ext_resource type="Texture2D" uid="uid://5eqbtqvhr07y" path="res://mini_games/parallel_parking/sprites/car_body_purple.png" id="5_4cbr6"]
+[ext_resource type="Texture2D" uid="uid://cwatelvepx68m" path="res://mini_games/parallel_parking/sprites/car_body_blue.png" id="7_mbo1d"]
 [ext_resource type="AudioStream" uid="uid://chjqn5wagreqq" path="res://mini_games/parallel_parking/sounds/crash.wav" id="7_vi7d2"]
+[ext_resource type="Texture2D" uid="uid://dgsm0so5vqbaq" path="res://mini_games/parallel_parking/sprites/car_body_silver.png" id="8_76ihi"]
 
 [node name="ParallelParking" type="Node2D"]
 script = ExtResource("1_s2v3l")
@@ -19,11 +21,11 @@ scale = Vector2(3, 3)
 
 [node name="StreetSprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.5, -7.5)
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 texture = ExtResource("1_q036w")
 
 [node name="CarArea2D" type="Area2D" parent="."]
-position = Vector2(0, 13)
+position = Vector2(68, 199)
 scale = Vector2(3, 3)
 script = ExtResource("2_qifmq")
 
@@ -51,7 +53,7 @@ position = Vector2(1, 8)
 polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -13, -1.87924, -15, -2, -15, 8, -13, 8, -13, 16, -11, 18, 9, 18, 11, 16, 11, 8, 13, 8, 13, -2, 11, -2, 11, -18.1477, 13, -18, 13, -28, 11, -28, 11, -32, 5, -37, -6, -37)
 
 [node name="Car3" type="Area2D" parent="."]
-position = Vector2(142, -224)
+position = Vector2(205, -222)
 scale = Vector2(3, 3)
 
 [node name="TopLeftWheel" type="Sprite2D" parent="Car3"]
@@ -78,7 +80,7 @@ polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -
 texture = ExtResource("5_4cbr6")
 
 [node name="Car2" type="Area2D" parent="."]
-position = Vector2(142, 200)
+position = Vector2(205, 202)
 scale = Vector2(3, 3)
 
 [node name="TopLeftWheel" type="Sprite2D" parent="Car2"]
@@ -102,10 +104,10 @@ position = Vector2(1, 8)
 polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -13, -1.87924, -15, -2, -15, 8, -13, 8, -13, 16, -11, 18, 9, 18, 11, 16, 11, 8, 13, 8, 13, -2, 11, -2, 11, -18.1477, 13, -18, 13, -28, 11, -28, 11, -32, 5, -37, -6, -37)
 
 [node name="CarSprite2D" type="Sprite2D" parent="Car2"]
-texture = ExtResource("5_4cbr6")
+texture = ExtResource("7_mbo1d")
 
 [node name="Car4" type="Area2D" parent="."]
-position = Vector2(-139, -237)
+position = Vector2(-212, -213)
 scale = Vector2(3, 3)
 
 [node name="TopLeftWheel" type="Sprite2D" parent="Car4"]
@@ -129,10 +131,10 @@ position = Vector2(1, 8)
 polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -13, -1.87924, -15, -2, -15, 8, -13, 8, -13, 16, -11, 18, 9, 18, 11, 16, 11, 8, 13, 8, 13, -2, 11, -2, 11, -18.1477, 13, -18, 13, -28, 11, -28, 11, -32, 5, -37, -6, -37)
 
 [node name="CarSprite2D" type="Sprite2D" parent="Car4"]
-texture = ExtResource("5_4cbr6")
+texture = ExtResource("8_76ihi")
 
 [node name="Car5" type="Area2D" parent="."]
-position = Vector2(-136, -38)
+position = Vector2(-209, -14)
 scale = Vector2(3, 3)
 
 [node name="TopLeftWheel" type="Sprite2D" parent="Car5"]
@@ -156,10 +158,10 @@ position = Vector2(1, 8)
 polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -13, -1.87924, -15, -2, -15, 8, -13, 8, -13, 16, -11, 18, 9, 18, 11, 16, 11, 8, 13, 8, 13, -2, 11, -2, 11, -18.1477, 13, -18, 13, -28, 11, -28, 11, -32, 5, -37, -6, -37)
 
 [node name="CarSprite2D" type="Sprite2D" parent="Car5"]
-texture = ExtResource("5_4cbr6")
+texture = ExtResource("7_mbo1d")
 
 [node name="Car6" type="Area2D" parent="."]
-position = Vector2(-135, 163)
+position = Vector2(-208, 187)
 scale = Vector2(3, 3)
 
 [node name="TopLeftWheel" type="Sprite2D" parent="Car6"]
