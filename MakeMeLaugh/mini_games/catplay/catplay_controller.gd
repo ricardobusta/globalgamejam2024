@@ -1,27 +1,27 @@
 extends MinigameController
 
-var cat_happines = 0
-var cat_bit_happy = 500
-var cat_medium_happy = 800
-var cat_happy = 1500
-var mouse_position
-var previous_mouse_position
+var cat_happines: float = 0
+var cat_bit_happy: float = 500
+var cat_medium_happy: float = 800
+var cat_happy: float = 1500
+var mouse_position: Vector2
+var previous_mouse_position: Vector2
 
-@onready var toy = $"Toy/Toy2D"
-@onready var cat = $"Cat/Cat2D"
+@onready var toy: Sprite2D = $"Toy/Toy2D"
+@onready var cat: Sprite2D = $"Cat/Cat2D"
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
     mouse_position = get_viewport().get_mouse_position()
     previous_mouse_position = mouse_position
     toy.position = mouse_position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta: float) -> void:
     # move the toy
     mouse_position = get_viewport().get_mouse_position()
-    var mouse_delta = mouse_position - previous_mouse_position
+    var mouse_delta: Vector2 = mouse_position - previous_mouse_position
     toy.position = mouse_position
     previous_mouse_position = mouse_position
 
