@@ -5,11 +5,15 @@ extends MinigameController
 
 @onready var win_button: ClickableArea3D = $WinButton
 @onready var lose_button: ClickableArea3D = $LoseButton
+@onready var lose_button2: ClickableArea3D = $LoseButton2
+@onready var lose_button3: ClickableArea3D = $LoseButton3
 @onready var lamp: MeshInstance3D = $Lamp
 
 func _ready() -> void:
     win_button.clicked.connect(_on_button_clicked)
     lose_button.clicked.connect(_on_button_clicked)
+    lose_button2.clicked.connect(_on_button_clicked)
+    lose_button3.clicked.connect(_on_button_clicked)
 
 func _on_button_clicked(button: ClickableArea3D) -> void:
     if _paused():

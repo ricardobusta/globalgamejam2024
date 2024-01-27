@@ -78,7 +78,7 @@ polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -
 texture = ExtResource("5_4cbr6")
 
 [node name="Car2" type="Area2D" parent="."]
-position = Vector2(145, 233)
+position = Vector2(142, 200)
 scale = Vector2(3, 3)
 
 [node name="TopLeftWheel" type="Sprite2D" parent="Car2"]

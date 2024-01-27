@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://04etu8gtol5"]
+[gd_scene load_steps=20 format=3 uid="uid://04etu8gtol5"]
 
 [ext_resource type="Script" path="res://mini_games/clown/clown_controller.gd" id="1_weclk"]
 [ext_resource type="ArrayMesh" uid="uid://dw4387hth0104" path="res://mini_games/clown/models/model_head.res" id="2_ywk6x"]
@@ -17,6 +17,10 @@
 [ext_resource type="ArrayMesh" uid="uid://cbm5jmaebunpa" path="res://mini_games/clown/models/model_dr_nose.res" id="13_bi43d"]
 [ext_resource type="ArrayMesh" uid="uid://ce76wjqs8bahq" path="res://mini_games/clown/models/model_skel_mouth.res" id="16_odmpd"]
 [ext_resource type="ArrayMesh" uid="uid://blmatut607ju6" path="res://mini_games/clown/models/model_dr_mouth.res" id="17_u1kuq"]
+[ext_resource type="Script" path="res://shared/clickable_area3d.gd" id="18_4qyap"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_mjjn3"]
+radius = 1.50327
 
 [node name="Clown" type="Node3D"]
 script = ExtResource("1_weclk")
@@ -124,3 +128,9 @@ fov = 30.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.827727, 0.401015, -0.392497, 0, 0.699476, 0.714656, 0.56113, -0.59154, 0.578976, 0, 1.80038, 3.20606)
+
+[node name="ClickableArea3D" type="Area3D" parent="."]
+script = ExtResource("18_4qyap")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableArea3D"]
+shape = SubResource("SphereShape3D_mjjn3")

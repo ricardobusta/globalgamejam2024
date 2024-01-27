@@ -1,37 +1,36 @@
 extends Node2D
 class_name CarController
 
-const rotation_speed = deg_to_rad(125)
-var velocity = 0.0
-const max_velocity = 100
-const friction = 200
-const acceleration = 100
-const wheel_rotation = deg_to_rad(25)
+const rotation_speed: float = deg_to_rad(125)
+var velocity: float = 0.0
+const max_velocity: float = 100
+const friction: float = 200
+const acceleration: float = 100
+const wheel_rotation: float = deg_to_rad(25)
 const position_threshold:float = 10
 const angle_threshold:float = 0.15
-var is_car_crashed = false
-var is_car_on = false
+var is_car_crashed: bool = false
+var is_car_on: bool = false
 
-@onready var top_left_wheel = $TopLeftWheel
-@onready var top_right_wheel = $TopRightWheel
-@onready var area_2d = $"."
+@onready var top_left_wheel: Node2D = $TopLeftWheel
+@onready var top_right_wheel: Node2D = $TopRightWheel
+@onready var area_2d: Area2D = $"."
 @onready var audio_stream: AudioStreamPlayer2D = $"../AudioStreamPlayer"
 @onready var parking_spot:Node2D = $"../ParkingSpot"
 
 signal car_crashed
 signal car_parked
 
-func _ready():
+func _ready() -> void:
     area_2d.area_entered.connect(_on_area_entered)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(delta: float) -> void:
 
     if is_car_crashed or !is_car_on:
         return
-    var wheel_current_rotation = 0
-    var up_or_down = false
+    var wheel_current_rotation: float = 0
+    var up_or_down: bool = false
 
     if Input.is_action_pressed("right"):
         self.rotation += rotation_speed * delta * (velocity/max_velocity)
@@ -59,13 +58,13 @@ func _process(delta):
 
     self.position += self.transform.basis_xform(Vector2.UP) * velocity * delta
 
-    var parking_distance = abs(self.position.x - parking_spot.position.x)
-    var parking_angle = abs(self.rotation)
+    var parking_distance: float = abs(self.position.x - parking_spot.position.x)
+    var parking_angle: float = abs(self.rotation)
     if parking_distance < position_threshold and parking_angle < angle_threshold:
         car_parked.emit()
 
 
-func _on_area_entered(area: Area2D):
+func _on_area_entered(_area: Area2D) -> void:
     audio_stream.play()
     is_car_crashed = true
     car_crashed.emit()
