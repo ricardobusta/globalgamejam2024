@@ -16,6 +16,7 @@ var game_running: bool
 @onready var health_template: TextureRect = $GameplayUI/HBoxContainer/TextureRect
 @onready var time_bar: ProgressBar = $GameplayUI/ProgressBar
 @onready var quit_button: Button = $GameplayUI/QuitButton
+@onready var action_label: Label = $GamePresentation/ActionLabel
 
 func _ready() -> void:
     health_container.remove_child(health_template)
@@ -46,8 +47,15 @@ func _set_minigame(index: int) -> void:
     time_bar.max_value = active_game.time
     time_bar.value = active_game.time
     add_child(active_game)
+    action_label.text = active_game.action
 
     add_child(game_presentation)
+
+    get_tree().create_timer(1).timeout.connect(_on_minigame_start)
+
+func _on_minigame_start() -> void:
+    game_running = true
+    remove_child(game_presentation)
 
 func _on_game_won() -> void:
     print("Won!")

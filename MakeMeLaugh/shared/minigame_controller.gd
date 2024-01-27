@@ -6,6 +6,7 @@ signal game_won_signal
 signal game_lost_signal
 
 @export var time: float = 5
+@export var action: String = "Call to action!"
 
 func _win_game() -> void:
     game_won_signal.emit()

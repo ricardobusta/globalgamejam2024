@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
     previous_mouse_position = mouse_position
 
     # if toy moved, cat is happier
-    cat_happines += abs(mouse_delta.x) + abs(mouse_delta.y)
+    cat_happines += mouse_delta.length()
     if cat_happines >= cat_bit_happy and cat_happines < cat_medium_happy:
         cat.texture = preload("res://mini_games/catplay/sprites/neutral_cat.png")
 

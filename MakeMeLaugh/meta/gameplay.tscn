@@ -23,7 +23,6 @@ mouse_filter = 1
 script = ExtResource("1_rb4i0")
 
 [node name="GamePresentation" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="GamePresentation"]
 anchors_preset = 15
@@ -33,7 +32,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_v1wqk")
 
-[node name="Label" type="Label" parent="GamePresentation"]
+[node name="ActionLabel" type="Label" parent="GamePresentation"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
