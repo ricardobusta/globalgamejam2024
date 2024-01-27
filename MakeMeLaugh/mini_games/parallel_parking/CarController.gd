@@ -66,7 +66,6 @@ func _process(delta):
 
 
 func _on_area_entered(area: Area2D):
-    print("Bonc " + area.name)
     audio_stream.play()
     is_car_crashed = true
     car_crashed.emit()
