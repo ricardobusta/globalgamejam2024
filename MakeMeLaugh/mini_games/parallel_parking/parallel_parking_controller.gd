@@ -6,6 +6,7 @@ extends MinigameController
 func _ready():
     car.is_car_on = true
     car.car_crashed.connect(_car_crashed)
+    car.car_parked.connect(_car_parked)
 
 
 func _car_crashed():

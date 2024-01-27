@@ -7,6 +7,8 @@ const max_velocity = 100
 const friction = 200
 const acceleration = 100
 const wheel_rotation = deg_to_rad(25)
+const position_threshold:float = 8
+const angle_threshold:float = 0.1
 var is_car_crashed = false
 var is_car_on = false
 
@@ -14,6 +16,7 @@ var is_car_on = false
 @onready var top_right_wheel = $TopRightWheel
 @onready var area_2d = $"."
 @onready var audio_stream: AudioStreamPlayer2D = $"../AudioStreamPlayer"
+@onready var parking_spot:Node2D = $"../ParkingSpot"
 
 signal car_crashed
 signal car_parked
@@ -56,11 +59,17 @@ func _process(delta):
 
     self.position += self.transform.basis_xform(Vector2.UP) * velocity * delta
 
+    var parking_distance = abs(self.position.x - parking_spot.position.x)
+    var parking_angle = abs(self.rotation)
+    print(parking_distance)
+    print(parking_angle)
+    if parking_distance < position_threshold and parking_angle < angle_threshold:
+        car_parked.emit()
+
 
 func _on_area_entered(area: Area2D):
     print("Bonc " + area.name)
     audio_stream.play()
     is_car_crashed = true
     car_crashed.emit()
-    # send event to parallel controller
 

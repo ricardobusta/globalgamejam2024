@@ -13,12 +13,17 @@ script = ExtResource("1_s2v3l")
 time = 8.0
 action = "Park it!"
 
+[node name="ParkingSpot" type="Node2D" parent="."]
+position = Vector2(142, -30)
+scale = Vector2(3, 3)
+
 [node name="StreetSprite2D" type="Sprite2D" parent="."]
 position = Vector2(0.5, -7.5)
 scale = Vector2(3, 3)
 texture = ExtResource("1_q036w")
 
 [node name="CarArea2D" type="Area2D" parent="."]
+position = Vector2(0, 13)
 scale = Vector2(3, 3)
 script = ExtResource("2_qifmq")
 
@@ -97,6 +102,87 @@ position = Vector2(1, 8)
 polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -13, -1.87924, -15, -2, -15, 8, -13, 8, -13, 16, -11, 18, 9, 18, 11, 16, 11, 8, 13, 8, 13, -2, 11, -2, 11, -18.1477, 13, -18, 13, -28, 11, -28, 11, -32, 5, -37, -6, -37)
 
 [node name="CarSprite2D" type="Sprite2D" parent="Car2"]
+texture = ExtResource("5_4cbr6")
+
+[node name="Car4" type="Area2D" parent="."]
+position = Vector2(-139, -237)
+scale = Vector2(3, 3)
+
+[node name="TopLeftWheel" type="Sprite2D" parent="Car4"]
+position = Vector2(-12, -15)
+texture = ExtResource("2_5fxiq")
+
+[node name="TopRightWheel" type="Sprite2D" parent="Car4"]
+position = Vector2(12, -15)
+texture = ExtResource("2_5fxiq")
+
+[node name="DownRightWheel" type="Sprite2D" parent="Car4"]
+position = Vector2(12, 11)
+texture = ExtResource("2_5fxiq")
+
+[node name="DownLeftWheel" type="Sprite2D" parent="Car4"]
+position = Vector2(-12, 11)
+texture = ExtResource("2_5fxiq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Car4"]
+position = Vector2(1, 8)
+polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -13, -1.87924, -15, -2, -15, 8, -13, 8, -13, 16, -11, 18, 9, 18, 11, 16, 11, 8, 13, 8, 13, -2, 11, -2, 11, -18.1477, 13, -18, 13, -28, 11, -28, 11, -32, 5, -37, -6, -37)
+
+[node name="CarSprite2D" type="Sprite2D" parent="Car4"]
+texture = ExtResource("5_4cbr6")
+
+[node name="Car5" type="Area2D" parent="."]
+position = Vector2(-136, -38)
+scale = Vector2(3, 3)
+
+[node name="TopLeftWheel" type="Sprite2D" parent="Car5"]
+position = Vector2(-12, -15)
+texture = ExtResource("2_5fxiq")
+
+[node name="TopRightWheel" type="Sprite2D" parent="Car5"]
+position = Vector2(12, -15)
+texture = ExtResource("2_5fxiq")
+
+[node name="DownRightWheel" type="Sprite2D" parent="Car5"]
+position = Vector2(12, 11)
+texture = ExtResource("2_5fxiq")
+
+[node name="DownLeftWheel" type="Sprite2D" parent="Car5"]
+position = Vector2(-12, 11)
+texture = ExtResource("2_5fxiq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Car5"]
+position = Vector2(1, 8)
+polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -13, -1.87924, -15, -2, -15, 8, -13, 8, -13, 16, -11, 18, 9, 18, 11, 16, 11, 8, 13, 8, 13, -2, 11, -2, 11, -18.1477, 13, -18, 13, -28, 11, -28, 11, -32, 5, -37, -6, -37)
+
+[node name="CarSprite2D" type="Sprite2D" parent="Car5"]
+texture = ExtResource("5_4cbr6")
+
+[node name="Car6" type="Area2D" parent="."]
+position = Vector2(-135, 163)
+scale = Vector2(3, 3)
+
+[node name="TopLeftWheel" type="Sprite2D" parent="Car6"]
+position = Vector2(-12, -15)
+texture = ExtResource("2_5fxiq")
+
+[node name="TopRightWheel" type="Sprite2D" parent="Car6"]
+position = Vector2(12, -15)
+texture = ExtResource("2_5fxiq")
+
+[node name="DownRightWheel" type="Sprite2D" parent="Car6"]
+position = Vector2(12, 11)
+texture = ExtResource("2_5fxiq")
+
+[node name="DownLeftWheel" type="Sprite2D" parent="Car6"]
+position = Vector2(-12, 11)
+texture = ExtResource("2_5fxiq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Car6"]
+position = Vector2(1, 8)
+polygon = PackedVector2Array(-13, -33, -13, -28, -15, -28, -15, -18, -13, -18, -13, -1.87924, -15, -2, -15, 8, -13, 8, -13, 16, -11, 18, 9, 18, 11, 16, 11, 8, 13, 8, 13, -2, 11, -2, 11, -18.1477, 13, -18, 13, -28, 11, -28, 11, -32, 5, -37, -6, -37)
+
+[node name="CarSprite2D" type="Sprite2D" parent="Car6"]
 texture = ExtResource("5_4cbr6")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
