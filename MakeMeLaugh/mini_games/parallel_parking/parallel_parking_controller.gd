@@ -10,13 +10,11 @@ func _ready():
 
 
 func _car_crashed():
-    print("Num e que bateu mesmo :/")
     car.is_car_on = false
     _lose_game()
 
 
 func _car_parked():
-    print("Carro esacionado, meu patrão")
     car.is_car_on = false
     _win_game()
 
