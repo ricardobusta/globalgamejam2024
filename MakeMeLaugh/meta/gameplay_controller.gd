@@ -31,9 +31,10 @@ func _ready() -> void:
         health_icons.append(node);
         health_container.add_child(node)
 
-    #scenes.append(load("res://mini_games/z_test_buttons/test_buttons.tscn"))
-    #scenes.append(load("res://mini_games/catplay/catplay.tscn"))
-    #scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
+    scenes.append(load("res://mini_games/catplay/catplay.tscn"))
+    scenes.append(load("res://mini_games/z_test_buttons/test_buttons.tscn"))
+    scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
+    scenes.append(load("res://mini_games/parallel_parking/parallel_parking.tscn"))
     scenes.append(load("res://mini_games/clown/clown.tscn"))
 
     scenes.shuffle()

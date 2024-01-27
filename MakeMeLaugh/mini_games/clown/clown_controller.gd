@@ -11,7 +11,7 @@ func timeout() -> void:
     pass
 
 func _process(delta: float) -> void:
-    hat.rotate_y(speed*delta)
-    eyes.rotate_y(-speed*delta)
-    nose.rotate_y(speed*delta)
-    mouth.rotate_y(-speed*delta)
+    hat.rotate_y(0.5*speed*delta)
+    eyes.rotate_y(-0.7*speed*delta)
+    nose.rotate_y(0.85*speed*delta)
+    mouth.rotate_y(-1.0*speed*delta)
