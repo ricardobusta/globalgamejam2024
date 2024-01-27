@@ -14,11 +14,7 @@ func _ready():
 	party_popper_02.clicked.connect(_on_popper_clicked)
 	party_popper_03.clicked.connect(_on_popper_clicked)
 
-func _process(delta):
-	pass
-
 func _on_popper_clicked(popper: Popper) -> void:
-	print(popper.name)
 	popper.sprite.texture = preload("res://mini_games/party_poppers/sprites/opened_popper_01.png")
 	popper.popped = true
 	_all_popped()
