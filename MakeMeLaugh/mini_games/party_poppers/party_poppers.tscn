@@ -1,10 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://doqa7duivest6"]
+[gd_scene load_steps=6 format=3 uid="uid://doqa7duivest6"]
 
 [ext_resource type="Texture2D" uid="uid://dc06u3l3s7p76" path="res://mini_games/party_poppers/sprites/closed_popper_01.png" id="1_6fx0j"]
 [ext_resource type="Script" path="res://mini_games/party_poppers/party_poppers_controller.gd" id="1_dp6h4"]
-[ext_resource type="Script" path="res://shared/clickable_area2d.gd" id="3_52dmv"]
+[ext_resource type="Texture2D" uid="uid://bd1acyrta1bq6" path="res://app/icon.svg" id="4_h2u7d"]
+[ext_resource type="Script" path="res://mini_games/party_poppers/popper.gd" id="5_vw838"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wrc11"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_otar8"]
+radius = 53.0
 
 [node name="PartyPoppers" type="Node2D"]
 script = ExtResource("1_dp6h4")
@@ -13,13 +15,52 @@ script = ExtResource("1_dp6h4")
 position = Vector2(575, 326)
 
 [node name="Party_popper_01" type="Node2D" parent="."]
-position = Vector2(579, 296)
+position = Vector2(214, 296)
 
-[node name="Party_popper_012D" type="Sprite2D" parent="Party_popper_01"]
+[node name="PartyPopperSprite" type="Sprite2D" parent="Party_popper_01"]
 texture = ExtResource("1_6fx0j")
 
-[node name="Area2D" type="Area2D" parent="Party_popper_01"]
-script = ExtResource("3_52dmv")
+[node name="Popper01Area2D" type="Area2D" parent="Party_popper_01"]
+script = ExtResource("5_vw838")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Party_popper_01/Area2D"]
-shape = SubResource("RectangleShape2D_wrc11")
+[node name="PullSprite" type="Sprite2D" parent="Party_popper_01/Popper01Area2D"]
+position = Vector2(0, 176)
+texture = ExtResource("4_h2u7d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Party_popper_01/Popper01Area2D"]
+position = Vector2(-1, 181)
+shape = SubResource("CircleShape2D_otar8")
+
+[node name="Party_popper_02" type="Node2D" parent="."]
+position = Vector2(497, 296)
+
+[node name="PartyPopperSprite" type="Sprite2D" parent="Party_popper_02"]
+texture = ExtResource("1_6fx0j")
+
+[node name="Popper02Area2D" type="Area2D" parent="Party_popper_02"]
+script = ExtResource("5_vw838")
+
+[node name="PullSprite" type="Sprite2D" parent="Party_popper_02/Popper02Area2D"]
+position = Vector2(0, 176)
+texture = ExtResource("4_h2u7d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Party_popper_02/Popper02Area2D"]
+position = Vector2(-1, 181)
+shape = SubResource("CircleShape2D_otar8")
+
+[node name="Party_popper_03" type="Node2D" parent="."]
+position = Vector2(760, 296)
+
+[node name="PartyPopperSprite" type="Sprite2D" parent="Party_popper_03"]
+texture = ExtResource("1_6fx0j")
+
+[node name="Popper03Area2D" type="Area2D" parent="Party_popper_03"]
+script = ExtResource("5_vw838")
+
+[node name="PullSprite" type="Sprite2D" parent="Party_popper_03/Popper03Area2D"]
+position = Vector2(0, 176)
+texture = ExtResource("4_h2u7d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Party_popper_03/Popper03Area2D"]
+position = Vector2(-1, 181)
+shape = SubResource("CircleShape2D_otar8")
