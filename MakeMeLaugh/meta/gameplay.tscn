@@ -10,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_rb4i0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -40,3 +41,12 @@ grow_horizontal = 2
 grow_vertical = 0
 max_value = 1.0
 value = 1.0
+
+[node name="QuitButton" type="Button" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -8.0
+offset_bottom = 8.0
+grow_horizontal = 0
+text = "QUIT"

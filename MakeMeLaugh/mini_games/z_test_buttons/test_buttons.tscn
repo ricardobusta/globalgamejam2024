@@ -1,34 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://i6fgt8puqsin"]
+[gd_scene load_steps=9 format=3 uid="uid://i6fgt8puqsin"]
 
 [ext_resource type="Script" path="res://mini_games/z_test_buttons/test_buttons_controller.gd" id="1_16sb5"]
-[ext_resource type="Texture2D" uid="uid://bd1acyrta1bq6" path="res://app/icon.svg" id="2_6b16n"]
-[ext_resource type="Script" path="res://shared/clickable_area2d.gd" id="2_d0hyd"]
+[ext_resource type="Script" path="res://shared/clickable_area3d.gd" id="2_0vh7e"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_36k6b"]
-radius = 51.0
+[sub_resource type="Environment" id="Environment_g20p0"]
 
-[node name="TestButtons" type="Node2D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yh2na"]
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yrd6m"]
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v5g3u"]
+albedo_color = Color(0.101961, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yrsyg"]
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llohd"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="TestButtons" type="Node3D"]
 script = ExtResource("1_16sb5")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 4.76837e-07, 5.12254, 5.24431)
+environment = SubResource("Environment_g20p0")
+fov = 30.0
 
-[node name="WinButton" type="Area2D" parent="."]
-position = Vector2(222, 0)
-script = ExtResource("2_d0hyd")
+[node name="WinButton" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+script = ExtResource("2_0vh7e")
 
-[node name="Sprite2D" type="Sprite2D" parent="WinButton"]
-texture = ExtResource("2_6b16n")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WinButton"]
+shape = SubResource("CylinderShape3D_yh2na")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WinButton"]
-shape = SubResource("CircleShape2D_36k6b")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WinButton"]
+mesh = SubResource("CylinderMesh_yrd6m")
+surface_material_override/0 = SubResource("StandardMaterial3D_v5g3u")
 
-[node name="LoseButton" type="Area2D" parent="."]
-position = Vector2(-219, 0)
-script = ExtResource("2_d0hyd")
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="WinButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.204406, 0)
+mesh = SubResource("CylinderMesh_yrsyg")
 
-[node name="Sprite2D" type="Sprite2D" parent="LoseButton"]
-position = Vector2(0, -1)
-texture = ExtResource("2_6b16n")
+[node name="LoseButton" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+script = ExtResource("2_0vh7e")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LoseButton"]
-shape = SubResource("CircleShape2D_36k6b")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LoseButton"]
+shape = SubResource("CylinderShape3D_yh2na")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LoseButton"]
+mesh = SubResource("CylinderMesh_yrd6m")
+surface_material_override/0 = SubResource("StandardMaterial3D_llohd")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="LoseButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.204406, 0)
+mesh = SubResource("CylinderMesh_yrsyg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.5, -0.230212, -0.834867, 0.866025, 0.132913, 0.482011, 0, -0.964021, 0.265825, 0, 0, 0)

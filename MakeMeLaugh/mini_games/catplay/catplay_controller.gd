@@ -27,12 +27,10 @@ func _process(_delta: float) -> void:
 
     # if toy moved, cat is happier
     cat_happines += abs(mouse_delta.x) + abs(mouse_delta.y)
-    print("cat happines: " + str(cat_happines))
     if cat_happines >= cat_bit_happy and cat_happines < cat_medium_happy:
         cat.texture = preload("res://mini_games/catplay/sprites/neutral_cat.png")
 
     # if cat is happy enough, win
     if cat_happines >= cat_happy:
         cat.texture = preload("res://mini_games/catplay/sprites/happy_cat.png")
-        print("The cat is super happy!")
         _win_game()

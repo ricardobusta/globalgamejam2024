@@ -12,6 +12,7 @@ var current_time: float
 @onready var health_container: BoxContainer = $CanvasLayer/HBoxContainer
 @onready var health_template: TextureRect = $CanvasLayer/HBoxContainer/TextureRect
 @onready var time_bar: ProgressBar = $CanvasLayer/ProgressBar
+@onready var quit_button: Button = $CanvasLayer/QuitButton
 
 func _ready() -> void:
     health_container.remove_child(health_template)
@@ -23,6 +24,8 @@ func _ready() -> void:
     scenes.append(load("res://mini_games/catplay/catplay.tscn"))
     scenes.append(load("res://mini_games/z_test_buttons/test_buttons.tscn"))
     _set_minigame(minigame_index)
+
+    quit_button.pressed.connect(_go_to_title)
 
 func _set_minigame(index: int) -> void:
     if active_game:
@@ -47,7 +50,7 @@ func _on_game_lost() -> void:
     current_health -= 1
 
     if current_health == 0:
-        get_tree().change_scene_to_file("res://meta/title_screen.tscn")
+        _go_to_title()
 
     _update_health_bar()
     _play_next_minigame()
@@ -72,3 +75,6 @@ func _process(delta: float) -> void:
     time_bar.value = current_time
     if current_time <= 0:
         _on_game_lost()
+
+func _go_to_title() -> void:
+    get_tree().change_scene_to_file("res://meta/title_screen.tscn")
