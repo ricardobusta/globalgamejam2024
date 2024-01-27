@@ -1,12 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://blpgrutefupge"]
+[gd_scene load_steps=7 format=3 uid="uid://blpgrutefupge"]
 
 [ext_resource type="Script" path="res://mini_games/sculpt/sculpt_controller.gd" id="1_eud66"]
 [ext_resource type="ArrayMesh" uid="uid://dlvhuwcbyp3nb" path="res://mini_games/sculpt/statue.res" id="2_n0bse"]
+[ext_resource type="Script" path="res://shared/clickable_area3d.gd" id="3_m1sva"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lqqey"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6yj2n"]
 albedo_color = Color(0.678431, 0.678431, 0.678431, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k6vne"]
+size = Vector3(2, 3, 2)
 
 [node name="Sculpt" type="Node3D"]
 script = ExtResource("1_eud66")
@@ -17,14 +21,8 @@ transform = Transform3D(0.707107, 0, -0.707107, -0.5, 0.707107, -0.5, 0.5, 0.707
 
 [node name="Blocks" type="Node3D" parent="Container"]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Container/Blocks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495775, 2.38419e-07, -0.496517)
-mesh = SubResource("BoxMesh_lqqey")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
-
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Container/Blocks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.504225, 2.38419e-07, -0.496517)
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0.504225, 2.52854e-07, -0.496517)
 mesh = SubResource("BoxMesh_lqqey")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
@@ -47,20 +45,8 @@ mesh = SubResource("BoxMesh_lqqey")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
 
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="Container/Blocks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495775, -1, -0.496517)
-mesh = SubResource("BoxMesh_lqqey")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
-
 [node name="MeshInstance3D10" type="MeshInstance3D" parent="Container/Blocks"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495775, 2.38419e-07, 0.503483)
-mesh = SubResource("BoxMesh_lqqey")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="Container/Blocks"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.504225, 2.38419e-07, 0.503483)
 mesh = SubResource("BoxMesh_lqqey")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
@@ -89,10 +75,35 @@ mesh = SubResource("BoxMesh_lqqey")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
 
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Container/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495775, -1, -0.496517)
+mesh = SubResource("BoxMesh_lqqey")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Container/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.504225, 2.38419e-07, 0.503483)
+mesh = SubResource("BoxMesh_lqqey")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Container/Blocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.495775, 2.68221e-07, -0.496517)
+mesh = SubResource("BoxMesh_lqqey")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_6yj2n")
+
 [node name="Statue" type="MeshInstance3D" parent="Container"]
 transform = Transform3D(1.10632, 0, 0, 0, 1.10632, 0, 0, 0, 1.10632, 0, -1.21772, 0)
 mesh = ExtResource("2_n0bse")
 skeleton = NodePath("../..")
+
+[node name="ClickableArea3D" type="Area3D" parent="Container"]
+script = ExtResource("3_m1sva")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Container/ClickableArea3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_k6vne")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.99632)
