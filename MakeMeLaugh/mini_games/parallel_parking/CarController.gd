@@ -7,8 +7,8 @@ const max_velocity = 100
 const friction = 200
 const acceleration = 100
 const wheel_rotation = deg_to_rad(25)
-const position_threshold:float = 8
-const angle_threshold:float = 0.1
+const position_threshold:float = 10
+const angle_threshold:float = 0.15
 var is_car_crashed = false
 var is_car_on = false
 
@@ -61,8 +61,6 @@ func _process(delta):
 
     var parking_distance = abs(self.position.x - parking_spot.position.x)
     var parking_angle = abs(self.rotation)
-    print(parking_distance)
-    print(parking_angle)
     if parking_distance < position_threshold and parking_angle < angle_threshold:
         car_parked.emit()
 
