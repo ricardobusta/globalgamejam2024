@@ -6,6 +6,8 @@ var minigame_index: int = 0
 var max_health: int = 5
 var current_health: int = max_health
 var health_icons: Array = []
+var pregame_action_time: float = 1
+var postgame_action_time: float = 1
 
 var current_time: float
 var game_running: bool
@@ -30,6 +32,8 @@ func _ready() -> void:
 
     scenes.shuffle()
 
+    remove_child(game_presentation)
+
     _set_minigame(minigame_index)
 
     quit_button.pressed.connect(_go_to_title)
@@ -50,7 +54,7 @@ func _set_minigame(index: int) -> void:
 
     add_child(game_presentation)
 
-    get_tree().create_timer(1).timeout.connect(_on_minigame_start)
+    get_tree().create_timer(pregame_action_time).timeout.connect(_on_minigame_start)
 
 func _on_minigame_start() -> void:
     game_running = true
@@ -59,7 +63,7 @@ func _on_minigame_start() -> void:
 func _on_game_won() -> void:
     print("Won!")
     _update_health_bar()
-    _play_next_minigame()
+    get_tree().create_timer(postgame_action_time).timeout.connect(_play_next_minigame)
 
 func _on_game_lost() -> void:
     print("Lost!")
@@ -69,7 +73,7 @@ func _on_game_lost() -> void:
         _go_to_title()
 
     _update_health_bar()
-    _play_next_minigame()
+    get_tree().create_timer(postgame_action_time).timeout.connect(_play_next_minigame)
 
 func _update_health_bar() -> void:
     for i: int in range(0, max_health):
