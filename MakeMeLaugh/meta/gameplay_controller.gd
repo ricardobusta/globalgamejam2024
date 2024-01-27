@@ -32,7 +32,6 @@ func _ready() -> void:
 
     quit_button.pressed.connect(_go_to_title)
 
-
 func _set_minigame(index: int) -> void:
     if active_game:
         remove_child(active_game)

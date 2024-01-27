@@ -11,4 +11,4 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
     if event is InputEventMouseButton:
         var button: InputEventMouseButton = event
         if button.button_index == MOUSE_BUTTON_LEFT and button.pressed:
-            clicked.emit(get_name())
+            clicked.emit(self)

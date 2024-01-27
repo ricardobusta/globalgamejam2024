@@ -13,21 +13,21 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_rb4i0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="GameplayUI" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="GameplayUI"]
 offset_left = 2.0
 offset_top = -2.0
 offset_right = 302.0
 offset_bottom = 38.0
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="GameplayUI/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 texture = ExtResource("1_yt55y")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="ProgressBar" type="ProgressBar" parent="GameplayUI"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -42,7 +42,7 @@ grow_vertical = 0
 max_value = 1.0
 value = 1.0
 
-[node name="QuitButton" type="Button" parent="CanvasLayer"]
+[node name="QuitButton" type="Button" parent="GameplayUI"]
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -50,3 +50,5 @@ offset_left = -8.0
 offset_bottom = 8.0
 grow_horizontal = 0
 text = "QUIT"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -24,8 +24,10 @@ offset_top = 123.0
 offset_right = 230.5
 offset_bottom = 206.0
 grow_horizontal = 2
-text = "Make me Laugh"
+text = "Lots of Lols"
 label_settings = SubResource("LabelSettings_5xwbg")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 1
