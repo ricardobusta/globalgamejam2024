@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://04etu8gtol5"]
+
+[ext_resource type="Script" path="res://mini_games/clown/clown_controller.gd" id="1_weclk"]
+
+[node name="Clown" type="Node3D"]
+script = ExtResource("1_weclk")
