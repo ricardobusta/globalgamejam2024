@@ -1,7 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://i6fgt8puqsin"]
+[gd_scene load_steps=13 format=3 uid="uid://i6fgt8puqsin"]
 
 [ext_resource type="Script" path="res://mini_games/z_test_buttons/test_buttons_controller.gd" id="1_16sb5"]
 [ext_resource type="Script" path="res://shared/clickable_area3d.gd" id="2_0vh7e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_igtp2"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5dukw"]
+albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="Environment" id="Environment_g20p0"]
 
@@ -22,8 +28,15 @@ height = 0.1
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_llohd"]
 albedo_color = Color(1, 0, 0, 1)
 
+[sub_resource type="SphereMesh" id="SphereMesh_55esr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs7vr"]
+albedo_color = Color(0.133333, 0.133333, 0.133333, 1)
+
 [node name="TestButtons" type="Node3D"]
 script = ExtResource("1_16sb5")
+win_material = SubResource("StandardMaterial3D_igtp2")
+lose_material = SubResource("StandardMaterial3D_5dukw")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 4.76837e-07, 5.12254, 5.24431)
@@ -62,3 +75,8 @@ mesh = SubResource("CylinderMesh_yrsyg")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.5, -0.230212, -0.834867, 0.866025, 0.132913, 0.482011, 0, -0.964021, 0.265825, 0, 0, 0)
+
+[node name="Lamp" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = SubResource("SphereMesh_55esr")
+surface_material_override/0 = SubResource("StandardMaterial3D_bs7vr")

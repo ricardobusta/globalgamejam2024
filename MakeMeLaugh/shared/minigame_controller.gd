@@ -9,10 +9,10 @@ signal game_lost_signal
 @export var action: String = "Call to action!"
 
 func _win_game() -> void:
-	game_won_signal.emit()
+    game_won_signal.emit()
 
 func _lose_game() -> void:
-	game_lost_signal.emit()
+    game_lost_signal.emit()
 
 func timeout() -> void:
-	assert(false, "method not implemented, override timeout in minigame")
+    assert(false, "method not implemented, override timeout in minigame")
