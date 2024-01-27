@@ -1,16 +1,18 @@
 extends Node
 
+const max_health: int = 5
+const pregame_action_time: float = 1
+const postgame_action_time: float = 1
+
 var scenes: Array = []
+var health_icons: Array = []
+
 var active_game: MinigameController = null
 var minigame_index: int = 0
-var max_health: int = 5
 var current_health: int = max_health
-var health_icons: Array = []
-var pregame_action_time: float = 1
-var postgame_action_time: float = 1
-
-var current_time: float
-var game_running: bool
+var current_time: float = 0
+var game_running: bool = false
+var victory_count: int = 0
 
 @onready var game_presentation: Node = $GamePresentation
 @onready var health_container: BoxContainer = $GameplayUI/HBoxContainer
@@ -18,6 +20,7 @@ var game_running: bool
 @onready var time_bar: ProgressBar = $GameplayUI/ProgressBar
 @onready var quit_button: Button = $GameplayUI/QuitButton
 @onready var action_label: Label = $GamePresentation/ActionLabel
+@onready var victory_count_label: Label = $GameplayUI/VictoryCountLabel
 
 func _ready() -> void:
     health_container.remove_child(health_template)
@@ -35,6 +38,8 @@ func _ready() -> void:
     remove_child(game_presentation)
 
     _set_minigame(minigame_index)
+
+    victory_count_label.text = "%d" % victory_count
 
     quit_button.pressed.connect(_go_to_title)
 
@@ -61,7 +66,9 @@ func _on_minigame_start() -> void:
     remove_child(game_presentation)
 
 func _on_game_won() -> void:
-    print("Won!")
+    print("Won %s" % active_game.action)
+    victory_count += 1
+    victory_count_label.text = "%d" % victory_count
     _update_health_bar()
     get_tree().create_timer(postgame_action_time).timeout.connect(_play_next_minigame)
 
