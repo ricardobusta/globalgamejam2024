@@ -32,6 +32,7 @@ func _ready() -> void:
     scenes.append(load("res://mini_games/catplay/catplay.tscn"))
     scenes.append(load("res://mini_games/z_test_buttons/test_buttons.tscn"))
     scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
+    scenes.append(load("res://mini_games/parallel_parking/parallel_parking.tscn"))
 
     scenes.shuffle()
 

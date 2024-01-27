@@ -1,4 +1,5 @@
 extends Node2D
+class_name Car
 
 const rotation_speed = deg_to_rad(125)
 var velocity = 0.0
@@ -7,19 +8,24 @@ const friction = 200
 const acceleration = 100
 const wheel_rotation = deg_to_rad(25)
 var is_car_crashed = false
+var is_car_on = false
 
 @onready var top_left_wheel = $TopLeftWheel
 @onready var top_right_wheel = $TopRightWheel
 @onready var area_2d = $"."
 @onready var audio_stream: AudioStreamPlayer2D = $"../AudioStreamPlayer"
 
+signal car_crashed
+signal car_parked
+
 func _ready():
     area_2d.area_entered.connect(_on_area_entered)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-    if is_car_crashed:
+    if is_car_crashed or !is_car_on:
         return
     var wheel_current_rotation = 0
     var up_or_down = false
@@ -55,3 +61,6 @@ func _on_area_entered(area: Area2D):
     print("Bonc " + area.name)
     audio_stream.play()
     is_car_crashed = true
+    car_crashed.emit()
+    # send event to parallel controller
+
