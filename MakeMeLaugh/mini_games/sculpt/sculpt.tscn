@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://blpgrutefupge"]
+[gd_scene load_steps=11 format=3 uid="uid://blpgrutefupge"]
 
 [ext_resource type="Script" path="res://mini_games/sculpt/sculpt_controller.gd" id="1_eud66"]
 [ext_resource type="ArrayMesh" uid="uid://dlvhuwcbyp3nb" path="res://mini_games/sculpt/statue.res" id="2_n0bse"]
 [ext_resource type="Script" path="res://shared/clickable_area3d.gd" id="3_m1sva"]
+[ext_resource type="AudioStream" uid="uid://kf4dpex3l0pf" path="res://mini_games/sculpt/sfx/break.wav" id="4_iwpqq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lqqey"]
 
@@ -12,12 +13,24 @@ albedo_color = Color(0.678431, 0.678431, 0.678431, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_k6vne"]
 size = Vector3(2, 3, 2)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_da70i"]
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m8ls7"]
+albedo_color = Color(0.117647, 0.219608, 0.521569, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ewntg"]
+albedo_color = Color(1, 0.745098, 0.360784, 1)
+
 [node name="Sculpt" type="Node3D"]
 script = ExtResource("1_eud66")
 action = "Sculpt!"
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 1.99816, 2.82583, 1.99816)
+
 [node name="Container" type="Node3D" parent="."]
-transform = Transform3D(0.707107, 0, -0.707107, -0.5, 0.707107, -0.5, 0.5, 0.707107, 0.5, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Blocks" type="Node3D" parent="Container"]
 
@@ -105,8 +118,33 @@ script = ExtResource("3_m1sva")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("BoxShape3D_k6vne")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.99632)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.931247, -0.34224, -0.125106, 0.364389, 0.87464, 0.319727, 0, -0.343332, 0.939214, 0, 1.50029, 3.44321)
+transform = Transform3D(-0.0697967, -0.613138, 0.786887, -0.461071, 0.719327, 0.519598, -0.884614, -0.326545, -0.332907, 0, 1.50029, 3.44321)
+shadow_enabled = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_iwpqq")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.699312, 0.578228, 0.420256, -0.515098, -2.14518e-08, 0.857131, 0.495617, -0.815875, 0.297844, 1.68104, 3.8481, 1.29066)
+visible = false
+light_energy = 10.859
+light_indirect_energy = 1.951
+shadow_enabled = true
+spot_range = 8.30813
+spot_angle = 25.6782
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.42045, 0)
+mesh = SubResource("PlaneMesh_da70i")
+surface_material_override/0 = SubResource("StandardMaterial3D_m8ls7")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2, 2.54476, -1.78839)
+mesh = SubResource("PlaneMesh_da70i")
+surface_material_override/0 = SubResource("StandardMaterial3D_ewntg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, -1.8606, 2.54476, 1.73236)
+mesh = SubResource("PlaneMesh_da70i")
+surface_material_override/0 = SubResource("StandardMaterial3D_ewntg")
