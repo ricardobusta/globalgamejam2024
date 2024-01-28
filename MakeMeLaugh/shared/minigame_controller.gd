@@ -7,6 +7,7 @@ signal game_lost_signal
 
 @export var time: float = 5
 @export var action: String = "Call to action!"
+@export var keyboard: bool = false
 
 var game_over: bool = false
 var started: bool = false

@@ -25,6 +25,8 @@ var victory_count: int = 0
 @onready var game_over: CanvasLayer = $GameOver
 @onready var game_over_score: Label = $GameOver/ScoreLabel
 @onready var game_over_button: Button = $GameOver/Button
+@onready var mouse_control: TextureRect = $GamePresentation/MouseIcon
+@onready var wasd_control: TextureRect = $GamePresentation/WasdIcon
 
 func _ready() -> void:
     current_health = max_health
@@ -70,6 +72,13 @@ func _set_minigame(index: int) -> void:
     time_bar.value = active_game.time
     add_child(active_game)
     action_label.text = active_game.action
+
+    if active_game.keyboard:
+        wasd_control.show()
+        mouse_control.hide()
+    else:
+        wasd_control.hide()
+        mouse_control.show()
 
     add_child(game_presentation)
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://du6j4komgxkgq"]
+[gd_scene load_steps=11 format=3 uid="uid://du6j4komgxkgq"]
 
 [ext_resource type="Script" path="res://meta/gameplay_controller.gd" id="1_rb4i0"]
 [ext_resource type="Texture2D" uid="uid://wycxvb24c8lc" path="res://meta/sprites/heart.png" id="2_ca6no"]
 [ext_resource type="AudioStream" uid="uid://davyjxuck7wrw" path="res://meta/music/krampus-workshop.mp3" id="3_7gmnm"]
+[ext_resource type="Texture2D" uid="uid://e4psbecwp44o" path="res://meta/sprites/mouse.png" id="3_dovth"]
 [ext_resource type="Texture2D" uid="uid://cv3ndd3yh7u2f" path="res://mini_games/clown/background.png" id="4_fboue"]
+[ext_resource type="Texture2D" uid="uid://cu1o8b3168rp0" path="res://meta/sprites/keyboard.png" id="4_rvm4u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w6nvy"]
 font_size = 50
@@ -104,6 +106,34 @@ text = "Game Instruction!"
 label_settings = SubResource("LabelSettings_ke253")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MouseIcon" type="TextureRect" parent="GamePresentation"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -24.5
+offset_top = 94.0
+offset_right = 24.5
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_dovth")
+
+[node name="WasdIcon" type="TextureRect" parent="GamePresentation"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = 94.0
+offset_right = 62.115
+offset_bottom = 172.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rvm4u")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7gmnm")

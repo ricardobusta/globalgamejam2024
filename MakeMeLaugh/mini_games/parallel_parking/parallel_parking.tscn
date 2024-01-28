@@ -14,6 +14,7 @@
 script = ExtResource("1_s2v3l")
 time = 20.0
 action = "Park it!"
+keyboard = true
 
 [node name="ParkingSpot" type="Node2D" parent="."]
 position = Vector2(207, -1)
