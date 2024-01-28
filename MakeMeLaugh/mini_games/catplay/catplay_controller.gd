@@ -10,9 +10,10 @@ var previous_mouse_position: Vector2
 @onready var toy: Sprite2D = $"Toy/Toy2D"
 @onready var cat: Sprite2D = $"Cat/Cat2D"
 
-const sad_cat: Texture2D = preload("res://mini_games/catplay/sprites/sad_cat.png")
-const neutral_cat: Texture2D = preload("res://mini_games/catplay/sprites/neutral_cat.png")
-const happy_cat: Texture2D = preload("res://mini_games/catplay/sprites/happy_cat.png")
+const sad_cat: Texture2D = preload("res://mini_games/catplay/sprites/sad_cat_02.png")
+const neutral_cat: Texture2D = preload("res://mini_games/catplay/sprites/neutral_cat_02.png")
+const happy_cat: Texture2D = preload("res://mini_games/catplay/sprites/happy_cat_02.png")
+const angry_cat: Texture2D = preload("res://mini_games/catplay/sprites/angry_cat_02.png")
 
 func _ready() -> void:
     mouse_position = get_viewport().get_mouse_position()
@@ -40,4 +41,4 @@ func _process(_delta: float) -> void:
         _win_game()
 
 func timeout() -> void:
-    cat.texture = sad_cat
+    cat.texture = angry_cat
