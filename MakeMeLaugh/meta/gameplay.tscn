@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://du6j4komgxkgq"]
+[gd_scene load_steps=8 format=3 uid="uid://du6j4komgxkgq"]
 
 [ext_resource type="Script" path="res://meta/gameplay_controller.gd" id="1_rb4i0"]
 [ext_resource type="Texture2D" uid="uid://wycxvb24c8lc" path="res://meta/sprites/heart.png" id="2_ca6no"]
+[ext_resource type="AudioStream" uid="uid://davyjxuck7wrw" path="res://meta/music/krampus-workshop.mp3" id="3_7gmnm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w6nvy"]
 font_size = 50
@@ -14,8 +15,9 @@ outline_color = Color(0, 0, 0, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_0ci3i")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ke253"]
-font_size = 50
-font_color = Color(0, 0, 0, 1)
+font_size = 80
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -81,6 +83,7 @@ label_settings = SubResource("LabelSettings_w6nvy")
 [node name="GamePresentation" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="GamePresentation"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -104,3 +107,7 @@ text = "Game Instruction!"
 label_settings = SubResource("LabelSettings_ke253")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_7gmnm")
+autoplay = true

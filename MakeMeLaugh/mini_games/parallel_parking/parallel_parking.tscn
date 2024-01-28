@@ -16,7 +16,7 @@ time = 8.0
 action = "Park it!"
 
 [node name="ParkingSpot" type="Node2D" parent="."]
-position = Vector2(142, -30)
+position = Vector2(207, -1)
 scale = Vector2(3, 3)
 
 [node name="StreetSprite2D" type="Sprite2D" parent="."]
