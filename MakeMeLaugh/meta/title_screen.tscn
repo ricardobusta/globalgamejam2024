@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjr3xbriyftdo"]
+[gd_scene load_steps=23 format=3 uid="uid://bjr3xbriyftdo"]
 
 [ext_resource type="Script" path="res://meta/title_screen_controller.gd" id="1_hyv20"]
 [ext_resource type="ArrayMesh" uid="uid://dw4387hth0104" path="res://mini_games/clown/models/model_head.res" id="2_jcgw1"]
 [ext_resource type="Texture2D" uid="uid://btiiee5qmn6bs" path="res://meta/sprites/us.png" id="2_xiy4x"]
 [ext_resource type="ArrayMesh" uid="uid://d1kqj16jom4bn" path="res://mini_games/clown/models/model_clown_hat.res" id="3_4yr65"]
+[ext_resource type="Script" path="res://meta/animate_head.gd" id="4_7d15g"]
 [ext_resource type="ArrayMesh" uid="uid://badskfv0uoy7l" path="res://mini_games/clown/models/model_clown_eyes.res" id="4_bcaec"]
 [ext_resource type="ArrayMesh" uid="uid://2iocoaf1iijv" path="res://mini_games/clown/models/model_clown_nose.res" id="5_gf2r6"]
 [ext_resource type="ArrayMesh" uid="uid://v11kgjac84de" path="res://mini_games/clown/models/model_clown_mouth.res" id="6_tiumk"]
@@ -12,9 +13,27 @@
 [ext_resource type="ArrayMesh" uid="uid://30ldh704jity" path="res://mini_games/clown/models/model_goblin_nose.res" id="9_ny8l8"]
 [ext_resource type="ArrayMesh" uid="uid://8cejh86oq4bk" path="res://mini_games/clown/models/model_goblin_mouth.res" id="10_l26r5"]
 [ext_resource type="AudioStream" uid="uid://c0q0tvmtxdme8" path="res://meta/music/waltz-of-the-carnies.mp3" id="11_f03td"]
+[ext_resource type="Texture2D" uid="uid://cv3ndd3yh7u2f" path="res://mini_games/clown/background.png" id="12_emfuf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0mxwe"]
+bg_color = Color(0.121569, 0.690196, 0.643137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qkmg"]
+bg_color = Color(0.356863, 0.690196, 0.337255, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvosk"]
+bg_color = Color(0.741176, 0.572549, 0.168627, 1)
+
+[sub_resource type="Theme" id="Theme_o3rvk"]
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/constants/outline_size = 4
+Button/font_sizes/font_size = 32
+Button/styles/hover = SubResource("StyleBoxFlat_0mxwe")
+Button/styles/normal = SubResource("StyleBoxFlat_6qkmg")
+Button/styles/pressed = SubResource("StyleBoxFlat_cvosk")
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xwbg"]
-font_size = 60
+font_size = 120
 font_color = Color(1, 0.796078, 0.862745, 1)
 outline_size = 10
 outline_color = Color(0.815686, 0, 0, 1)
@@ -48,16 +67,17 @@ offset_right = 48.5
 offset_bottom = -196.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = SubResource("Theme_o3rvk")
 text = "PLAY GAME"
 
 [node name="TitleLabel" type="Label" parent="UiCanvas"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -229.5
-offset_top = 123.0
-offset_right = 230.5
-offset_bottom = 206.0
+offset_left = -325.0
+offset_top = 92.0
+offset_right = 326.0
+offset_bottom = 257.0
 grow_horizontal = 2
 text = "Lots of Lols"
 label_settings = SubResource("LabelSettings_5xwbg")
@@ -115,6 +135,8 @@ expand_mode = 1
 [node name="Head" type="MeshInstance3D" parent="Scene"]
 transform = Transform3D(0.742841, 0, 0.669468, -0.3258, 0.873594, 0.361508, -0.584843, -0.486656, 0.648942, -1.57355, 0, 0)
 mesh = ExtResource("2_jcgw1")
+script = ExtResource("4_7d15g")
+angle_offset = 180.0
 
 [node name="Hat" type="MeshInstance3D" parent="Scene/Head"]
 mesh = ExtResource("3_4yr65")
@@ -135,6 +157,7 @@ skeleton = NodePath("../..")
 [node name="Head2" type="MeshInstance3D" parent="Scene"]
 transform = Transform3D(0.575452, -0.391928, -0.717807, 0.55947, 0.82884, -0.00403689, 0.59653, -0.399269, 0.69623, 1.75754, 0, 0)
 mesh = ExtResource("2_jcgw1")
+script = ExtResource("4_7d15g")
 
 [node name="Hat" type="MeshInstance3D" parent="Scene/Head2"]
 mesh = ExtResource("7_5kqsb")
@@ -159,6 +182,10 @@ fov = 30.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Scene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.48259)
+
+[node name="Sprite3D" type="Sprite3D" parent="Scene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.82059)
+texture = ExtResource("12_emfuf")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_f03td")
