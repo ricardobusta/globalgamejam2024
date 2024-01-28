@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjr3xbriyftdo"]
+[gd_scene load_steps=17 format=3 uid="uid://bjr3xbriyftdo"]
 
 [ext_resource type="Script" path="res://meta/title_screen_controller.gd" id="1_hyv20"]
 [ext_resource type="ArrayMesh" uid="uid://dw4387hth0104" path="res://mini_games/clown/models/model_head.res" id="2_jcgw1"]
+[ext_resource type="Texture2D" uid="uid://btiiee5qmn6bs" path="res://meta/sprites/us.png" id="2_xiy4x"]
 [ext_resource type="ArrayMesh" uid="uid://d1kqj16jom4bn" path="res://mini_games/clown/models/model_clown_hat.res" id="3_4yr65"]
 [ext_resource type="ArrayMesh" uid="uid://badskfv0uoy7l" path="res://mini_games/clown/models/model_clown_eyes.res" id="4_bcaec"]
 [ext_resource type="ArrayMesh" uid="uid://2iocoaf1iijv" path="res://mini_games/clown/models/model_clown_nose.res" id="5_gf2r6"]
@@ -93,6 +94,21 @@ Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/"
 label_settings = SubResource("LabelSettings_rg0q4")
 horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="UiCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -572.0
+offset_top = -186.0
+offset_right = -357.15
+offset_bottom = -66.29
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_xiy4x")
+expand_mode = 1
 
 [node name="Scene" type="Node3D" parent="."]
 
