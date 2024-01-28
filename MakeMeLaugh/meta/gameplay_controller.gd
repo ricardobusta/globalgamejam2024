@@ -34,8 +34,8 @@ func _ready() -> void:
 
     #scenes.append(load("res://mini_games/catplay/catplay.tscn"))
     #scenes.append(load("res://mini_games/correct_buttons/test_buttons.tscn"))
-    #scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
-    scenes.append(load("res://mini_games/parallel_parking/parallel_parking.tscn"))
+    scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
+    #scenes.append(load("res://mini_games/parallel_parking/parallel_parking.tscn"))
     #scenes.append(load("res://mini_games/clown/clown.tscn"))
     #scenes.append(load("res://mini_games/sculpt/sculpt.tscn"))
 
@@ -50,6 +50,7 @@ func _ready() -> void:
     quit_button.pressed.connect(_go_to_title)
 
 func _set_minigame(index: int) -> void:
+    Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
     if active_game:
         remove_child(active_game)
         active_game.queue_free()

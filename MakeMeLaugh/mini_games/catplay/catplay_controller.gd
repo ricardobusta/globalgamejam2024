@@ -9,6 +9,7 @@ var previous_mouse_position: Vector2
 
 @onready var toy: Sprite2D = $"Toy/Toy2D"
 @onready var cat: Sprite2D = $"Cat/Cat2D"
+@onready var camera: Camera2D = $Camera2D
 
 const sad_cat: Texture2D = preload("res://mini_games/catplay/sprites/sad_cat_02.png")
 const neutral_cat: Texture2D = preload("res://mini_games/catplay/sprites/neutral_cat_02.png")
@@ -16,19 +17,20 @@ const happy_cat: Texture2D = preload("res://mini_games/catplay/sprites/happy_cat
 const angry_cat: Texture2D = preload("res://mini_games/catplay/sprites/angry_cat_02.png")
 
 func _ready() -> void:
-    mouse_position = get_viewport().get_mouse_position()
+    mouse_position = camera.get_global_mouse_position()
     previous_mouse_position = mouse_position
-    toy.position = mouse_position
+    toy.global_position = mouse_position
+    Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 
 func _process(_delta: float) -> void:
+    # move the toy
+    mouse_position = camera.get_global_mouse_position()
+    var mouse_delta: Vector2 = mouse_position - previous_mouse_position
+    toy.global_position = mouse_position
+    previous_mouse_position = mouse_position
+
     if _paused():
         return
-
-    # move the toy
-    mouse_position = get_viewport().get_mouse_position()
-    var mouse_delta: Vector2 = mouse_position - previous_mouse_position
-    toy.position = mouse_position
-    previous_mouse_position = mouse_position
 
     # if toy moved, cat is happier
     cat_happines += mouse_delta.length()

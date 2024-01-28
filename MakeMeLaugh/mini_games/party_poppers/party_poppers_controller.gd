@@ -1,30 +1,46 @@
 extends MinigameController
 
-@onready var party_popper_01:Popper = $Party_popper_01/Popper01Area2D
-@onready var party_popper_01_sprite:Sprite2D = $Party_popper_01/PartyPopperSprite
+@onready var popper1: ClickableArea2D = $Popper1
+@onready var popper_open1: Popper = $PopperOpen1
 
-@onready var party_popper_02:Popper = $Party_popper_02/Popper02Area2D
-@onready var party_popper_02_sprite:Sprite2D = $Party_popper_02/PartyPopperSprite
+@onready var popper2: ClickableArea2D = $Popper2
+@onready var popper_open2: Popper = $PopperOpen2
 
-@onready var party_popper_03:Popper = $Party_popper_03/Popper03Area2D
-@onready var party_popper_03_sprite:Sprite2D = $Party_popper_03/PartyPopperSprite
+@onready var popper3: ClickableArea2D = $Popper3
+@onready var popper_open3: Popper = $PopperOpen3
+
+@onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
+
+var count: int = 0
 
 func _ready() -> void:
-    party_popper_01.clicked.connect(_on_popper_clicked)
-    party_popper_02.clicked.connect(_on_popper_clicked)
-    party_popper_03.clicked.connect(_on_popper_clicked)
+    popper1.clicked.connect(_on_popper_clicked)
+    popper_open1.hide()
+    popper2.clicked.connect(_on_popper_clicked)
+    popper3.clicked.connect(_on_popper_clicked)
 
-func _on_popper_clicked(popper: Popper) -> void:
+func _on_popper_clicked(popper: ClickableArea2D) -> void:
     if _paused():
         return
-    popper.sprite.texture = preload("res://mini_games/party_poppers/sprites/opened_popper_01.png")
-    popper.popped = true
-    _all_popped()
 
-func _all_popped() -> void:
-    if _paused():
-        return
-    if party_popper_01.popped and party_popper_02.popped and party_popper_03.popped:
+    count+=1
+
+    remove_child(popper)
+    popper.queue_free()
+
+    audio_player.play()
+
+    if popper == popper1:
+        popper_open1.show()
+        popper_open1.play()
+    elif popper == popper2:
+        popper_open2.show()
+        popper_open2.play()
+    elif popper == popper3:
+        popper_open3.show()
+        popper_open3.play()
+
+    if count >= 3:
         _win_game()
 
 func timeout() -> void:

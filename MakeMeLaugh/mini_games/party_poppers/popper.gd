@@ -1,6 +1,11 @@
-extends ClickableArea2D
+extends Node
 class_name Popper
 
-var popped: bool = false
+@onready var particle1: CPUParticles2D = $"CPUParticles2D"
+@onready var particle2: CPUParticles2D = $"CPUParticles2D2"
+@onready var particle3: CPUParticles2D = $"CPUParticles2D3"
 
-@onready var sprite:Sprite2D = $"../PartyPopperSprite"
+func play():
+    particle1.emitting = true
+    particle2.emitting = true
+    particle3.emitting = true

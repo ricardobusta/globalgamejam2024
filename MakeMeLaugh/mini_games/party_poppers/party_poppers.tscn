@@ -1,9 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://doqa7duivest6"]
+[gd_scene load_steps=17 format=3 uid="uid://doqa7duivest6"]
 
-[ext_resource type="Texture2D" uid="uid://dc06u3l3s7p76" path="res://mini_games/party_poppers/sprites/closed_popper_01.png" id="1_6fx0j"]
 [ext_resource type="Script" path="res://mini_games/party_poppers/party_poppers_controller.gd" id="1_dp6h4"]
-[ext_resource type="Texture2D" uid="uid://bd1acyrta1bq6" path="res://app/icon.svg" id="4_h2u7d"]
-[ext_resource type="Script" path="res://mini_games/party_poppers/popper.gd" id="5_vw838"]
+[ext_resource type="Texture2D" uid="uid://be1aj3fspbdxh" path="res://mini_games/party_poppers/sprites/popper_blue_open.png" id="2_6ka2h"]
+[ext_resource type="Texture2D" uid="uid://dadr72o0utp7i" path="res://mini_games/party_poppers/sprites/popper_blue.png" id="2_ycvo8"]
+[ext_resource type="Script" path="res://mini_games/party_poppers/Popper.gd" id="3_5j3rs"]
+[ext_resource type="Texture2D" uid="uid://cdqxwjbpuclf6" path="res://mini_games/party_poppers/sprites/popper_green.png" id="3_6g13p"]
+[ext_resource type="Texture2D" uid="uid://dgfrsrckwxfk7" path="res://mini_games/party_poppers/sprites/popper_green_open.png" id="3_k1olb"]
+[ext_resource type="Texture2D" uid="uid://cvqsn3xy0npf0" path="res://mini_games/party_poppers/sprites/popper_red.png" id="4_pf8r3"]
+[ext_resource type="Texture2D" uid="uid://wder1qlpw70s" path="res://mini_games/party_poppers/sprites/particle_1.png" id="5_fgpmw"]
+[ext_resource type="Texture2D" uid="uid://h3psctce8smw" path="res://mini_games/party_poppers/sprites/popper_red_open.png" id="5_ycanb"]
+[ext_resource type="Script" path="res://shared/clickable_area2d.gd" id="6_p1xwx"]
+[ext_resource type="Texture2D" uid="uid://byn8vun0pkh0u" path="res://mini_games/party_poppers/sprites/particle_2.png" id="8_jskaa"]
+[ext_resource type="Texture2D" uid="uid://bnfy5mpawbnq" path="res://mini_games/party_poppers/sprites/particle_3.png" id="9_2i0id"]
+[ext_resource type="AudioStream" uid="uid://ci1y4pii4aa2s" path="res://mini_games/party_poppers/sfx/pop.wav" id="13_i3gqf"]
+
+[sub_resource type="Gradient" id="Gradient_cw7ei"]
+offsets = PackedFloat32Array(0, 0.475155, 1)
+colors = PackedColorArray(0, 0, 1, 1, 1, 0.683333, 0, 1, 1, 0, 0.916667, 1)
+
+[sub_resource type="Gradient" id="Gradient_slqhe"]
+offsets = PackedFloat32Array(0, 0.524845, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.176471, 1, 0.176471, 1, 0, 1, 1, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_otar8"]
 radius = 53.0
@@ -15,53 +32,203 @@ action = "Pop'em All!"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 326)
 
-[node name="Party_popper_01" type="Node2D" parent="."]
+[node name="PopperOpen1" type="Sprite2D" parent="."]
 position = Vector2(214, 296)
+texture = ExtResource("2_6ka2h")
+script = ExtResource("3_5j3rs")
 
-[node name="PartyPopperSprite" type="Sprite2D" parent="Party_popper_01"]
-texture = ExtResource("1_6fx0j")
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PopperOpen1"]
+position = Vector2(31, -29)
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("8_jskaa")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(3.47, -6.035)
+gravity = Vector2(0, 1000)
+initial_velocity_min = 375.7
+initial_velocity_max = 1000.0
+angular_velocity_min = 147.89
+angular_velocity_max = 147.89
 
-[node name="Popper01Area2D" type="Area2D" parent="Party_popper_01"]
-script = ExtResource("5_vw838")
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="PopperOpen1"]
+position = Vector2(31, -29)
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("9_2i0id")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(3.47, -6.035)
+gravity = Vector2(0, 1000)
+initial_velocity_min = 375.7
+initial_velocity_max = 1000.0
+angular_velocity_min = 147.89
+angular_velocity_max = 147.89
+color_ramp = SubResource("Gradient_cw7ei")
 
-[node name="PullSprite" type="Sprite2D" parent="Party_popper_01/Popper01Area2D"]
-position = Vector2(0, 176)
-texture = ExtResource("4_h2u7d")
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="PopperOpen1"]
+position = Vector2(30, -28)
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("5_fgpmw")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(3.47, -6.035)
+gravity = Vector2(0, 1000)
+initial_velocity_min = 375.7
+initial_velocity_max = 1000.0
+angular_velocity_min = 147.89
+angular_velocity_max = 147.89
+color_ramp = SubResource("Gradient_slqhe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Party_popper_01/Popper01Area2D"]
-position = Vector2(-1, 181)
+[node name="Popper1" type="Area2D" parent="."]
+position = Vector2(214, 296)
+script = ExtResource("6_p1xwx")
+
+[node name="PullSprite" type="Sprite2D" parent="Popper1"]
+texture = ExtResource("2_ycvo8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popper1"]
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_otar8")
 
-[node name="Party_popper_02" type="Node2D" parent="."]
+[node name="PopperOpen2" type="Sprite2D" parent="."]
 position = Vector2(497, 296)
+texture = ExtResource("3_k1olb")
+script = ExtResource("3_5j3rs")
 
-[node name="PartyPopperSprite" type="Sprite2D" parent="Party_popper_02"]
-texture = ExtResource("1_6fx0j")
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PopperOpen2"]
+position = Vector2(31, -29)
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("8_jskaa")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(3.47, -6.035)
+gravity = Vector2(0, 1000)
+initial_velocity_min = 375.7
+initial_velocity_max = 1000.0
+angular_velocity_min = 147.89
+angular_velocity_max = 147.89
 
-[node name="Popper02Area2D" type="Area2D" parent="Party_popper_02"]
-script = ExtResource("5_vw838")
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="PopperOpen2"]
+position = Vector2(31, -29)
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("9_2i0id")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(3.47, -6.035)
+gravity = Vector2(0, 1000)
+initial_velocity_min = 375.7
+initial_velocity_max = 1000.0
+angular_velocity_min = 147.89
+angular_velocity_max = 147.89
+color_ramp = SubResource("Gradient_cw7ei")
 
-[node name="PullSprite" type="Sprite2D" parent="Party_popper_02/Popper02Area2D"]
-position = Vector2(0, 176)
-texture = ExtResource("4_h2u7d")
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="PopperOpen2"]
+position = Vector2(30, -28)
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("5_fgpmw")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(3.47, -6.035)
+gravity = Vector2(0, 1000)
+initial_velocity_min = 375.7
+initial_velocity_max = 1000.0
+angular_velocity_min = 147.89
+angular_velocity_max = 147.89
+color_ramp = SubResource("Gradient_slqhe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Party_popper_02/Popper02Area2D"]
-position = Vector2(-1, 181)
+[node name="Popper2" type="Area2D" parent="."]
+position = Vector2(497, 296)
+script = ExtResource("6_p1xwx")
+
+[node name="PullSprite" type="Sprite2D" parent="Popper2"]
+texture = ExtResource("3_6g13p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popper2"]
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_otar8")
 
-[node name="Party_popper_03" type="Node2D" parent="."]
+[node name="PopperOpen3" type="Sprite2D" parent="."]
 position = Vector2(760, 296)
+texture = ExtResource("5_ycanb")
+script = ExtResource("3_5j3rs")
 
-[node name="PartyPopperSprite" type="Sprite2D" parent="Party_popper_03"]
-texture = ExtResource("1_6fx0j")
+[node name="CPUParticles2D" type="CPUParticles2D" parent="PopperOpen3"]
+position = Vector2(31, -29)
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("8_jskaa")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(3.47, -6.035)
+gravity = Vector2(0, 1000)
+initial_velocity_min = 375.7
+initial_velocity_max = 1000.0
+angular_velocity_min = 147.89
+angular_velocity_max = 147.89
 
-[node name="Popper03Area2D" type="Area2D" parent="Party_popper_03"]
-script = ExtResource("5_vw838")
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="PopperOpen3"]
+position = Vector2(31, -29)
+emitting = false
+amount = 10
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("9_2i0id")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(3.47, -6.035)
+gravity = Vector2(0, 1000)
+initial_velocity_min = 375.7
+initial_velocity_max = 1000.0
+angular_velocity_min = 147.89
+angular_velocity_max = 147.89
+color_ramp = SubResource("Gradient_cw7ei")
 
-[node name="PullSprite" type="Sprite2D" parent="Party_popper_03/Popper03Area2D"]
-position = Vector2(0, 176)
-texture = ExtResource("4_h2u7d")
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="PopperOpen3"]
+position = Vector2(30, -28)
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+texture = ExtResource("5_fgpmw")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(3.47, -6.035)
+gravity = Vector2(0, 1000)
+initial_velocity_min = 375.7
+initial_velocity_max = 1000.0
+angular_velocity_min = 147.89
+angular_velocity_max = 147.89
+color_ramp = SubResource("Gradient_slqhe")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Party_popper_03/Popper03Area2D"]
-position = Vector2(-1, 181)
+[node name="Popper3" type="Area2D" parent="."]
+position = Vector2(760, 296)
+script = ExtResource("6_p1xwx")
+
+[node name="PullSprite" type="Sprite2D" parent="Popper3"]
+texture = ExtResource("4_pf8r3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Popper3"]
+position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_otar8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_i3gqf")
