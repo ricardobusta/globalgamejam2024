@@ -10,6 +10,8 @@ var previous_mouse_position: Vector2
 @onready var toy: Sprite2D = $"Toy/Toy2D"
 @onready var cat: Sprite2D = $"Cat/Cat2D"
 @onready var camera: Camera2D = $Camera2D
+@onready var purr_sound: AudioStreamPlayer = $PurrAudio
+@onready var meow_sound: AudioStreamPlayer = $MeowAudio
 
 const sad_cat: Texture2D = preload("res://mini_games/catplay/sprites/sad_cat_02.png")
 const neutral_cat: Texture2D = preload("res://mini_games/catplay/sprites/neutral_cat_02.png")
@@ -21,6 +23,7 @@ func _ready() -> void:
     previous_mouse_position = mouse_position
     toy.global_position = mouse_position
     Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
+    purr_sound.play()
 
 func _process(_delta: float) -> void:
     # move the toy
@@ -36,10 +39,12 @@ func _process(_delta: float) -> void:
     cat_happines += mouse_delta.length()
     if cat_happines >= cat_bit_happy and cat_happines < cat_medium_happy:
         cat.texture = neutral_cat
+        purr_sound.play()
 
     # if cat is happy enough, win
     if cat_happines >= cat_happy:
         cat.texture = happy_cat
+        meow_sound.play()
         _win_game()
 
 func timeout() -> void:

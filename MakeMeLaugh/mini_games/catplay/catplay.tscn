@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bufiv2pjum3uh"]
+[gd_scene load_steps=7 format=3 uid="uid://bufiv2pjum3uh"]
 
 [ext_resource type="Script" path="res://mini_games/catplay/catplay_controller.gd" id="1_db7s1"]
 [ext_resource type="Texture2D" uid="uid://cuc4k6jwdq3ru" path="res://mini_games/catplay/sprites/cat_toy.png" id="2_1qep2"]
 [ext_resource type="Texture2D" uid="uid://cn8neivox2hne" path="res://mini_games/catplay/sprites/sad_cat_02.png" id="2_f7mm8"]
 [ext_resource type="Texture2D" uid="uid://dm3r7urur1jdh" path="res://mini_games/catplay/sprites/background.png" id="2_lkjs7"]
+[ext_resource type="AudioStream" uid="uid://bg042l1gk2i6f" path="res://mini_games/catplay/sfx/meow.wav" id="5_xf2y6"]
+[ext_resource type="AudioStream" uid="uid://c8vs55orncj0y" path="res://mini_games/catplay/sfx/purr.wav" id="6_1k0k4"]
 
 [node name="CatGame" type="Node2D"]
 script = ExtResource("1_db7s1")
@@ -31,4 +33,8 @@ texture = ExtResource("2_1qep2")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(581, 324)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MeowAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_xf2y6")
+
+[node name="PurrAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_1k0k4")

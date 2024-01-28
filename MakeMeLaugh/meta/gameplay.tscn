@@ -107,6 +107,7 @@ vertical_alignment = 1
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7gmnm")
+volume_db = -1.0
 autoplay = true
 
 [node name="GameOver" type="CanvasLayer" parent="."]
