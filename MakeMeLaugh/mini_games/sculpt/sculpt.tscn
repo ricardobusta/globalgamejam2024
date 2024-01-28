@@ -135,7 +135,7 @@ spot_range = 8.30813
 spot_angle = 25.6782
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.42045, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1.42045, 2)
 mesh = SubResource("PlaneMesh_da70i")
 surface_material_override/0 = SubResource("StandardMaterial3D_m8ls7")
 
