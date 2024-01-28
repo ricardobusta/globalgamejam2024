@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://04etu8gtol5"]
+[gd_scene load_steps=22 format=3 uid="uid://04etu8gtol5"]
 
 [ext_resource type="Script" path="res://mini_games/clown/clown_controller.gd" id="1_weclk"]
 [ext_resource type="ArrayMesh" uid="uid://dw4387hth0104" path="res://mini_games/clown/models/model_head.res" id="2_ywk6x"]
@@ -19,6 +19,7 @@
 [ext_resource type="ArrayMesh" uid="uid://blmatut607ju6" path="res://mini_games/clown/models/model_dr_mouth.res" id="17_u1kuq"]
 [ext_resource type="Script" path="res://shared/clickable_area3d.gd" id="18_4qyap"]
 [ext_resource type="AudioStream" uid="uid://dntv2quiswkkv" path="res://mini_games/clown/sfx/select.wav" id="19_7h3lg"]
+[ext_resource type="Texture2D" uid="uid://cv3ndd3yh7u2f" path="res://mini_games/clown/background.png" id="20_rn3rt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mjjn3"]
 radius = 1.50327
@@ -158,3 +159,8 @@ skeleton = NodePath("../..")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("19_7h3lg")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1.32141, 0, 0, 0, 1.55598, 0, 0, 0, 0.999999, 0, 0, -7.04125)
+modulate = Color(0.403922, 0.223529, 0.0352941, 1)
+texture = ExtResource("20_rn3rt")
