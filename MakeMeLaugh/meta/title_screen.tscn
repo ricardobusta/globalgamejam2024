@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjr3xbriyftdo"]
+[gd_scene load_steps=16 format=3 uid="uid://bjr3xbriyftdo"]
 
 [ext_resource type="Script" path="res://meta/title_screen_controller.gd" id="1_hyv20"]
 [ext_resource type="ArrayMesh" uid="uid://dw4387hth0104" path="res://mini_games/clown/models/model_head.res" id="2_jcgw1"]
@@ -10,9 +10,23 @@
 [ext_resource type="ArrayMesh" uid="uid://br4tnr0uctkto" path="res://mini_games/clown/models/model_goblin_eyes.res" id="8_jnucl"]
 [ext_resource type="ArrayMesh" uid="uid://30ldh704jity" path="res://mini_games/clown/models/model_goblin_nose.res" id="9_ny8l8"]
 [ext_resource type="ArrayMesh" uid="uid://8cejh86oq4bk" path="res://mini_games/clown/models/model_goblin_mouth.res" id="10_l26r5"]
+[ext_resource type="AudioStream" uid="uid://c0q0tvmtxdme8" path="res://meta/music/waltz-of-the-carnies.mp3" id="11_f03td"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xwbg"]
 font_size = 60
+font_color = Color(1, 0.796078, 0.862745, 1)
+outline_size = 10
+outline_color = Color(0.815686, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0.572549, 0, 1)
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gskko"]
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rg0q4"]
+font_size = 12
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Environment" id="Environment_xiulp"]
 
@@ -50,19 +64,35 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CreditsLabel" type="Label" parent="UiCanvas"]
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 2
 anchor_top = 1.0
-anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -162.0
-offset_top = -77.0
-offset_right = 163.0
-offset_bottom = -28.0
-grow_horizontal = 2
+offset_left = 11.0
+offset_top = -62.0
+offset_right = 336.0
+offset_bottom = -13.0
 grow_vertical = 0
 text = "Ricardo Bustamante <ricardo@busta.dev>
 Vanessa Oliveira <vanessa@vksilva.com>"
+label_settings = SubResource("LabelSettings_gskko")
+
+[node name="MusicCreditsLabel" type="Label" parent="UiCanvas"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -472.0
+offset_top = -67.0
+offset_right = -9.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "\"Krampus Workshop\", \"Waltz of the Carnies\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/"
+label_settings = SubResource("LabelSettings_rg0q4")
+horizontal_alignment = 2
 
 [node name="Scene" type="Node3D" parent="."]
 
@@ -113,3 +143,7 @@ fov = 30.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Scene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5.48259)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f03td")
+autoplay = true
