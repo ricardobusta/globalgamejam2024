@@ -30,3 +30,5 @@ texture = ExtResource("2_1qep2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(581, 324)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
