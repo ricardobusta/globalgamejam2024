@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://04etu8gtol5"]
+[gd_scene load_steps=21 format=3 uid="uid://04etu8gtol5"]
 
 [ext_resource type="Script" path="res://mini_games/clown/clown_controller.gd" id="1_weclk"]
 [ext_resource type="ArrayMesh" uid="uid://dw4387hth0104" path="res://mini_games/clown/models/model_head.res" id="2_ywk6x"]
@@ -18,14 +18,15 @@
 [ext_resource type="ArrayMesh" uid="uid://ce76wjqs8bahq" path="res://mini_games/clown/models/model_skel_mouth.res" id="16_odmpd"]
 [ext_resource type="ArrayMesh" uid="uid://blmatut607ju6" path="res://mini_games/clown/models/model_dr_mouth.res" id="17_u1kuq"]
 [ext_resource type="Script" path="res://shared/clickable_area3d.gd" id="18_4qyap"]
+[ext_resource type="AudioStream" uid="uid://dntv2quiswkkv" path="res://mini_games/clown/sfx/select.wav" id="19_7h3lg"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_mjjn3"]
 radius = 1.50327
 
 [node name="Clown" type="Node3D"]
 script = ExtResource("1_weclk")
-time = 10.0
-action = "Make him funny!"
+time = 15.0
+action = "Create this clown!"
 
 [node name="Head" type="MeshInstance3D" parent="."]
 mesh = ExtResource("2_ywk6x")
@@ -123,7 +124,7 @@ mesh = ExtResource("17_u1kuq")
 skeleton = NodePath("../..")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.991381, 0.131011, 0, -0.131011, 0.991381, 0, 1.33321, 5.98857)
+transform = Transform3D(1, 0, 0, 0, 0.991381, 0.131011, 0, -0.131011, 0.991381, 0, 1.33321, 7.47927)
 fov = 30.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -134,3 +135,26 @@ script = ExtResource("18_4qyap")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableArea3D"]
 shape = SubResource("SphereShape3D_mjjn3")
+
+[node name="Head2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.291389, 0, 0.262608, -0.1278, 0.342679, 0.141806, -0.229413, -0.190897, 0.254556, -2.66216, -0.910604, 0.00140572)
+mesh = ExtResource("2_ywk6x")
+
+[node name="Hat" type="MeshInstance3D" parent="Head2"]
+mesh = ExtResource("3_pufpf")
+skeleton = NodePath("../..")
+
+[node name="Eyes" type="MeshInstance3D" parent="Head2"]
+mesh = ExtResource("3_70jb3")
+skeleton = NodePath("../..")
+
+[node name="Nose" type="MeshInstance3D" parent="Head2"]
+mesh = ExtResource("5_1ss3c")
+skeleton = NodePath("../..")
+
+[node name="Mouth" type="MeshInstance3D" parent="Head2"]
+mesh = ExtResource("6_k06pw")
+skeleton = NodePath("../..")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_7h3lg")
