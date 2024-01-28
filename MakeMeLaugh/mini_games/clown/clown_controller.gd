@@ -12,7 +12,7 @@ const muahaha_sound: AudioStream = preload("res://mini_games/clown/sfx/muahaha.w
 const select_sound: AudioStream = preload("res://mini_games/clown/sfx/select.wav")
 
 const speed: float = deg_to_rad(140)
-const angle_to_section = 2.0/PI
+const angle_to_section: float = 2.0/PI
 
 var clicked: int = 0
 var rotating: Node3D = null
@@ -76,7 +76,7 @@ func _on_click(_node: Node3D) -> void:
     clicked+=1
 
 func _stop_angle(angle: float) -> float:
-    var rot = round(angle * angle_to_section)
+    var rot: float = round(angle * angle_to_section)
     return rot / angle_to_section
 
 

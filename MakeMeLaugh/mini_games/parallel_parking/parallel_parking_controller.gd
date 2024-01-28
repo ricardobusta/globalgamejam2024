@@ -8,14 +8,14 @@ extends MinigameController
 @onready var car5: Node2D = $Car5
 @onready var car6: Node2D = $Car6
 
-func _ready():
+func _ready() -> void:
     car.car_crashed.connect(_car_crashed)
     car.car_parked.connect(_car_parked)
 
-func _car_crashed():
+func _car_crashed() -> void:
     _lose_game()
 
-func _car_parked():
+func _car_parked() -> void:
     _move_car(car2, 1000)
     _move_car(car3, -1000)
     _move_car(car4, -1000)

@@ -1,13 +1,13 @@
 extends MinigameController
 
 @onready var popper1: ClickableArea2D = $Popper1
-@onready var popper_open1: Popper = $PopperOpen1
+@onready var popper_open1: PartyPopper = $PopperOpen1
 
 @onready var popper2: ClickableArea2D = $Popper2
-@onready var popper_open2: Popper = $PopperOpen2
+@onready var popper_open2: PartyPopper = $PopperOpen2
 
 @onready var popper3: ClickableArea2D = $Popper3
-@onready var popper_open3: Popper = $PopperOpen3
+@onready var popper_open3: PartyPopper = $PopperOpen3
 
 @onready var audio_player: AudioStreamPlayer = $AudioStreamPlayer
 
