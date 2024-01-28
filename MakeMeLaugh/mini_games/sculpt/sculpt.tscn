@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://blpgrutefupge"]
+[gd_scene load_steps=8 format=3 uid="uid://blpgrutefupge"]
 
 [ext_resource type="Script" path="res://mini_games/sculpt/sculpt_controller.gd" id="1_eud66"]
 [ext_resource type="ArrayMesh" uid="uid://dlvhuwcbyp3nb" path="res://mini_games/sculpt/statue.res" id="2_n0bse"]
 [ext_resource type="Script" path="res://shared/clickable_area3d.gd" id="3_m1sva"]
+[ext_resource type="AudioStream" uid="uid://kf4dpex3l0pf" path="res://mini_games/sculpt/sfx/break.wav" id="4_iwpqq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_lqqey"]
 
@@ -110,3 +111,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.99632)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.931247, -0.34224, -0.125106, 0.364389, 0.87464, 0.319727, 0, -0.343332, 0.939214, 0, 1.50029, 3.44321)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_iwpqq")
