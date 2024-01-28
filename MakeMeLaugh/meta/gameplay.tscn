@@ -9,15 +9,15 @@ font_size = 50
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ci3i"]
-
-[sub_resource type="Theme" id="Theme_v1wqk"]
-Panel/styles/panel = SubResource("StyleBoxFlat_0ci3i")
-
 [sub_resource type="LabelSettings" id="LabelSettings_ke253"]
 font_size = 80
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ci3i"]
+
+[sub_resource type="Theme" id="Theme_v1wqk"]
+Panel/styles/panel = SubResource("StyleBoxFlat_0ci3i")
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -82,15 +82,6 @@ label_settings = SubResource("LabelSettings_w6nvy")
 
 [node name="GamePresentation" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="GamePresentation"]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = SubResource("Theme_v1wqk")
-
 [node name="ActionLabel" type="Label" parent="GamePresentation"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,3 +102,51 @@ vertical_alignment = 1
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_7gmnm")
 autoplay = true
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Panel" type="Panel" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_v1wqk")
+
+[node name="Label" type="Label" parent="GameOver"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -43.5
+offset_right = 43.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Game Over"
+
+[node name="ScoreLabel" type="Label" parent="GameOver"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -11.5
+offset_right = 43.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score: 99"
+
+[node name="Button" type="Button" parent="GameOver"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -8.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Ok"

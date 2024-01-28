@@ -22,6 +22,9 @@ var victory_count: int = 0
 @onready var action_label: Label = $GamePresentation/ActionLabel
 @onready var victory_count_label: Label = $GameplayUI/VictoryCountLabel
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
+@onready var game_over: CanvasLayer = $GameOver
+@onready var game_over_score: Label = $GameOver/ScoreLabel
+@onready var game_over_button: Button = $GameOver/Button
 
 func _ready() -> void:
     current_health = max_health
@@ -43,11 +46,15 @@ func _ready() -> void:
 
     remove_child(game_presentation)
 
+    remove_child(game_over)
+
     _set_minigame(minigame_index)
 
     victory_count_label.text = "%d" % victory_count
 
     quit_button.pressed.connect(_go_to_title)
+
+    game_over_button.pressed.connect(_go_to_title)
 
 func _set_minigame(index: int) -> void:
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -85,7 +92,9 @@ func _on_game_lost() -> void:
     current_health -= 1
 
     if current_health == 0:
-        _go_to_title()
+        Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+        add_child(game_over)
+        game_over_score.text = "Score: %d" % victory_count
         return
 
     _update_health_bar()
@@ -113,7 +122,7 @@ func _process(delta: float) -> void:
         game_running = false
         _on_game_lost()
 
-    if game_running:
+    if game_running and !active_game.game_over:
         current_time -= delta
         time_bar.value = current_time
         if current_time <= 0:
