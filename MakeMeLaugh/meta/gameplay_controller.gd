@@ -21,6 +21,7 @@ var victory_count: int = 0
 @onready var quit_button: Button = $GameplayUI/QuitButton
 @onready var action_label: Label = $GamePresentation/ActionLabel
 @onready var victory_count_label: Label = $GameplayUI/VictoryCountLabel
+@onready var music_player: AudioStreamPlayer = $MusicPlayer
 
 func _ready() -> void:
     current_health = max_health
@@ -79,7 +80,7 @@ func _on_game_won() -> void:
     get_tree().create_timer(postgame_action_time).timeout.connect(_play_next_minigame)
 
 func _on_game_lost() -> void:
-    print("Lost!")
+    print("Lost ", active_game.action)
     current_health -= 1
 
     if current_health == 0:
@@ -118,6 +119,7 @@ func _process(delta: float) -> void:
             active_game.game_over = true
             active_game.timeout()
             game_running = false
+            print("Timeout ", active_game.action)
             _on_game_lost()
 
 func _go_to_title() -> void:

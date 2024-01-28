@@ -15,8 +15,9 @@ outline_color = Color(0, 0, 0, 1)
 Panel/styles/panel = SubResource("StyleBoxFlat_0ci3i")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ke253"]
-font_size = 50
-font_color = Color(0, 0, 0, 1)
+font_size = 80
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Gameplay" type="Control"]
 layout_mode = 3
@@ -82,6 +83,7 @@ label_settings = SubResource("LabelSettings_w6nvy")
 [node name="GamePresentation" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="GamePresentation"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
