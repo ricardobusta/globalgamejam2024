@@ -1,15 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://du6j4komgxkgq"]
+[gd_scene load_steps=11 format=3 uid="uid://du6j4komgxkgq"]
 
 [ext_resource type="Script" path="res://meta/gameplay_controller.gd" id="1_rb4i0"]
 [ext_resource type="Texture2D" uid="uid://wycxvb24c8lc" path="res://meta/sprites/heart.png" id="2_ca6no"]
 [ext_resource type="AudioStream" uid="uid://davyjxuck7wrw" path="res://meta/music/krampus-workshop.mp3" id="3_7gmnm"]
 [ext_resource type="Texture2D" uid="uid://e4psbecwp44o" path="res://meta/sprites/mouse.png" id="3_dovth"]
+[ext_resource type="Texture2D" uid="uid://jnq0qdc3t17d" path="res://meta/sprites/time_bar_bg.png" id="3_myo8x"]
+[ext_resource type="Texture2D" uid="uid://df2wyh8tglhcr" path="res://meta/sprites/time_bar_fg.png" id="4_pi6m3"]
 [ext_resource type="Texture2D" uid="uid://cu1o8b3168rp0" path="res://meta/sprites/keyboard.png" id="4_rvm4u"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w6nvy"]
 font_size = 50
 outline_size = 5
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fgsa8"]
+font_size = 25
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ke253"]
 font_size = 80
@@ -42,21 +50,6 @@ layout_mode = 2
 texture = ExtResource("2_ca6no")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="GameplayUI"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -398.0
-offset_top = -29.0
-offset_right = 402.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 0
-max_value = 1.0
-value = 1.0
-
 [node name="QuitButton" type="Button" parent="GameplayUI"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -76,6 +69,38 @@ offset_bottom = 69.0
 grow_horizontal = 2
 text = "99"
 label_settings = SubResource("LabelSettings_w6nvy")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="GameplayUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -30.0
+offset_right = 400.0
+grow_horizontal = 2
+grow_vertical = 0
+step = 0.01
+value = 88.0
+texture_under = ExtResource("3_myo8x")
+texture_progress = ExtResource("4_pi6m3")
+
+[node name="ProgressCount" type="Label" parent="GameplayUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "999"
+label_settings = SubResource("LabelSettings_fgsa8")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GamePresentation" type="CanvasLayer" parent="."]
 

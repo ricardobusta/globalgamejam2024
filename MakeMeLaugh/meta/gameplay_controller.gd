@@ -17,7 +17,8 @@ var victory_count: int = 0
 @onready var game_presentation: Node = $GamePresentation
 @onready var health_container: BoxContainer = $GameplayUI/HBoxContainer
 @onready var health_template: TextureRect = $GameplayUI/HBoxContainer/TextureRect
-@onready var time_bar: ProgressBar = $GameplayUI/ProgressBar
+@onready var time_bar: TextureProgressBar = $GameplayUI/ProgressBar
+@onready var time_label: Label = $GameplayUI/ProgressCount
 @onready var quit_button: Button = $GameplayUI/QuitButton
 @onready var action_label: Label = $GamePresentation/ActionLabel
 @onready var victory_count_label: Label = $GameplayUI/VictoryCountLabel
@@ -65,6 +66,7 @@ func _set_minigame(index: int) -> void:
     current_time = active_game.time
     time_bar.max_value = active_game.time
     time_bar.value = active_game.time
+    time_label.text = "%d" % ceil(active_game.time)
     add_child(active_game)
     action_label.text = active_game.action
 
@@ -129,6 +131,7 @@ func _process(delta: float) -> void:
     if game_running and !active_game.game_over:
         current_time -= delta
         time_bar.value = current_time
+        time_label.text = "%d" % ceil(current_time)
         if current_time <= 0:
             active_game.game_over = true
             active_game.timeout()
