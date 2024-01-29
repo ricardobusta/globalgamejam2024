@@ -22,11 +22,10 @@ var victory_count: int = 0
 @onready var action_label: Label = $GamePresentation/ActionLabel
 @onready var victory_count_label: Label = $GameplayUI/VictoryCountLabel
 @onready var music_player: AudioStreamPlayer = $MusicPlayer
-@onready var game_over: CanvasLayer = $GameOver
-@onready var game_over_score: Label = $GameOver/ScoreLabel
-@onready var game_over_button: Button = $GameOver/Button
 @onready var mouse_control: TextureRect = $GamePresentation/MouseIcon
 @onready var wasd_control: TextureRect = $GamePresentation/WasdIcon
+
+var game_over: GameOverController = null
 
 func _ready() -> void:
     current_health = max_health
@@ -37,26 +36,22 @@ func _ready() -> void:
         health_icons.append(node);
         health_container.add_child(node)
 
-    scenes.append(load("res://mini_games/catplay/catplay.tscn"))
-    #scenes.append(load("res://mini_games/correct_buttons/test_buttons.tscn"))
-    scenes.append(load("res://mini_games/party_poppers/party_poppers.tscn"))
-    scenes.append(load("res://mini_games/parallel_parking/parallel_parking.tscn"))
-    scenes.append(load("res://mini_games/clown/clown.tscn"))
-    scenes.append(load("res://mini_games/sculpt/sculpt.tscn"))
+    scenes.append(preload("res://mini_games/catplay/catplay.tscn"))
+    scenes.append(preload("res://mini_games/party_poppers/party_poppers.tscn"))
+    scenes.append(preload("res://mini_games/parallel_parking/parallel_parking.tscn"))
+    scenes.append(preload("res://mini_games/clown/clown.tscn"))
+    scenes.append(preload("res://mini_games/sculpt/sculpt.tscn"))
+    game_over = preload("res://meta/game_over.tscn").instantiate()
 
     scenes.shuffle()
 
     remove_child(game_presentation)
-
-    remove_child(game_over)
 
     _set_minigame(minigame_index)
 
     victory_count_label.text = "%d" % victory_count
 
     quit_button.pressed.connect(_go_to_title)
-
-    game_over_button.pressed.connect(_go_to_title)
 
 func _set_minigame(index: int) -> void:
     Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -102,8 +97,8 @@ func _on_game_lost() -> void:
 
     if current_health == 0:
         Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+        game_over.set_score(victory_count)
         add_child(game_over)
-        game_over_score.text = "Score: %d" % victory_count
         return
 
     _update_health_bar()
