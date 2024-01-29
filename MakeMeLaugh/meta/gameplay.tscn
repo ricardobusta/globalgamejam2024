@@ -82,7 +82,7 @@ offset_right = 400.0
 grow_horizontal = 2
 grow_vertical = 0
 step = 0.01
-value = 88.0
+value = 50.0
 texture_under = ExtResource("3_myo8x")
 texture_progress = ExtResource("4_pi6m3")
 
